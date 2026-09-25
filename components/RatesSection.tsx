@@ -277,6 +277,11 @@ const ratesStyles = `
     padding-top: 20px;
   }
 
+  .rate-card:focus-visible {
+    outline: 2px solid #090909;
+    outline-offset: -2px;
+  }
+
   .rate-card__top {
     display: flex;
     align-items: center;
@@ -372,13 +377,13 @@ const ratesStyles = `
       var(--font-clash-display),
       sans-serif;
 
-    font-size: 8px;
+    font-size: 11px;
     font-weight: 600;
 
     letter-spacing: 0.14em;
 
     color:
-      rgba(0, 0, 0, 0.4);
+      rgba(0, 0, 0, 0.72);
   }
 
   .rate-card__amount {
@@ -401,7 +406,9 @@ const ratesStyles = `
       var(--font-clash-display),
       sans-serif;
 
-    font-size: 17px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
 
     transition:
       transform 200ms ease;
@@ -907,7 +914,11 @@ export default function RatesSection() {
           </div>
 
           <div className="rates-section__grid">
-            <article className="rate-card">
+            <a
+              className="rate-card"
+              href="#contatti"
+              aria-label="Chiedi informazioni per il parcheggio moto, da €15"
+            >
               <div className="rate-card__top">
                 <span className="rate-card__index">
                   01
@@ -943,12 +954,16 @@ export default function RatesSection() {
                   className="rate-card__arrow"
                   aria-hidden="true"
                 >
-                  ↘
+                  CHIEDI INFO ↘
                 </span>
               </div>
-            </article>
+            </a>
 
-            <article className="rate-card">
+            <a
+              className="rate-card"
+              href="#contatti"
+              aria-label="Chiedi informazioni per il parcheggio auto, da €20"
+            >
               <div className="rate-card__top">
                 <span className="rate-card__index">
                   02
@@ -984,12 +999,16 @@ export default function RatesSection() {
                   className="rate-card__arrow"
                   aria-hidden="true"
                 >
-                  ↘
+                  CHIEDI INFO ↘
                 </span>
               </div>
-            </article>
+            </a>
 
-            <article className="rate-card">
+            <a
+              className="rate-card"
+              href="#contatti"
+              aria-label="Chiedi informazioni per SUV, furgoni e camper, da €25"
+            >
               <div className="rate-card__top">
                 <span className="rate-card__index">
                   03
@@ -1028,10 +1047,10 @@ export default function RatesSection() {
                   className="rate-card__arrow"
                   aria-hidden="true"
                 >
-                  ↘
+                  CHIEDI INFO ↘
                 </span>
               </div>
-            </article>
+            </a>
           </div>
 
           <div className="rates-section__bottom">
