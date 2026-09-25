@@ -342,13 +342,13 @@ const contactStyles = `
   }
 
   .contact-card__label {
-    font-size: 7px;
+    font-size: 11px;
     font-weight: 600;
 
     letter-spacing: 0.16em;
 
     color:
-      rgba(0, 0, 0, 0.34);
+      rgba(0, 0, 0, 0.72);
   }
 
   .contact-card__content {
@@ -380,13 +380,13 @@ const contactStyles = `
   }
 
   .contact-card__sub {
-    font-size: 8px;
+    font-size: 11px;
     line-height: 1.45;
 
     letter-spacing: 0.04em;
 
     color:
-      rgba(0, 0, 0, 0.44);
+      rgba(0, 0, 0, 0.72);
   }
 
   a.contact-card {
@@ -421,7 +421,7 @@ const contactStyles = `
 
     gap: 5px;
 
-    font-size: 7px;
+    font-size: 10px;
     font-weight: 500;
 
     line-height: 1.5;
@@ -429,7 +429,7 @@ const contactStyles = `
     letter-spacing: 0.1em;
 
     color:
-      rgba(0, 0, 0, 0.38);
+      rgba(0, 0, 0, 0.72);
   }
 
   .contact-section__brand {
@@ -690,11 +690,11 @@ const contactStyles = `
     }
 
     .contact-card__sub {
-      font-size: 7px;
+      font-size: 10px;
     }
 
     .contact-section__legal {
-      font-size: 6px;
+      font-size: 10px;
     }
   }
 

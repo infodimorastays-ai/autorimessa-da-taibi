@@ -9,19 +9,16 @@ const reviews = [
   {
     name: 'ERMEREST TAHIRAJ',
     rating: 5,
-    date: '6 MESI FA',
     text: 'Posto davvero sicuro e ben organizzato. È tutto telecomandato e videosorvegliato, quindi mi sento tranquillo ogni volta che entro ed esco, anche in orari diversi. Posso accedere quando voglio in totale autonomia, ed è una comodità enorme.',
   },
   {
     name: 'LUCA PICARIELLO',
     rating: 5,
-    date: '5 MESI FA',
     text: 'Frequento quest’autorimessa da anni ormai e mi trovo benissimo, ora più che mai. Un punto di riferimento in zona Borgo Vittoria. Ibra è super disponibile e cordiale, un vero professionista che sa come trattare i clienti.',
   },
   {
     name: 'GF ADR',
     rating: 5,
-    date: '6 MESI FA',
     text: 'Autorimessa comodissima per la zona con comodo autolavaggio interno. Titolare gentile, competente e professionale. Videoaorvegliata H24 e ben organizzata. Consigliata e promossa a pieni voti.',
   },
 ];
@@ -209,13 +206,13 @@ const reviewsStyles = `
   }
 
   .reviews-section__rating-count {
-    font-size: 7px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.15em;
 
     color:
-      rgba(255, 255, 255, 0.36);
+      rgba(255, 255, 255, 0.72);
   }
 
   .reviews-section__heading {
@@ -351,6 +348,11 @@ const reviewsStyles = `
       rgba(255, 255, 255, 0.14);
   }
 
+  .reviews-section__cards:focus-visible {
+    outline: 2px solid #f3f1eb;
+    outline-offset: 4px;
+  }
+
   .review-card {
     position: relative;
 
@@ -393,13 +395,13 @@ const reviewsStyles = `
   }
 
   .review-card__index {
-    font-size: 7px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.16em;
 
     color:
-      rgba(255, 255, 255, 0.27);
+      rgba(255, 255, 255, 0.7);
   }
 
   .review-card__stars {
@@ -419,12 +421,12 @@ const reviewsStyles = `
     max-width: 420px;
 
     font-size:
-      clamp(11px, 0.9vw, 13px);
+      clamp(13px, 1vw, 15px);
 
     line-height: 1.55;
 
     color:
-      rgba(255, 255, 255, 0.62);
+      rgba(255, 255, 255, 0.82);
   }
 
   .review-card__footer {
@@ -459,24 +461,14 @@ const reviewsStyles = `
     letter-spacing: -0.03em;
   }
 
-  .review-card__date {
-    font-size: 7px;
-    font-weight: 600;
-
-    letter-spacing: 0.14em;
-
-    color:
-      rgba(255, 255, 255, 0.3);
-  }
-
   .review-card__google {
-    font-size: 7px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.14em;
 
     color:
-      rgba(255, 255, 255, 0.3);
+      rgba(255, 255, 255, 0.7);
   }
 
   .reviews-section__bottom {
@@ -578,7 +570,7 @@ const reviewsStyles = `
         15px 0
         14px;
 
-      font-size: 10px;
+      font-size: 12px;
     }
   }
 
@@ -665,28 +657,38 @@ const reviewsStyles = `
     }
 
     .reviews-section__cards {
-      display: block;
+      display: grid;
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: 88%;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+
+    .reviews-section__cards::-webkit-scrollbar {
+      display: none;
     }
 
     .review-card {
-      min-height: auto;
+      min-height: 220px;
+      scroll-snap-align: start;
 
       padding:
-        12px 0;
+        16px 18px;
 
-      border-right: 0;
-
-      border-bottom:
+      border-right:
         1px solid
         rgba(255, 255, 255, 0.12);
     }
 
     .review-card:last-child {
-      border-bottom: 0;
+      border-right: 0;
     }
 
     .review-card:hover {
-      padding-top: 12px;
+      padding-top: 16px;
 
       background: transparent;
     }
@@ -698,16 +700,9 @@ const reviewsStyles = `
 
       max-width: none;
 
-      font-size: 10px;
+      font-size: 13px;
 
-      line-height: 1.45;
-
-      display: -webkit-box;
-
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-
-      overflow: hidden;
+      line-height: 1.5;
     }
 
     .review-card__name {
@@ -759,11 +754,11 @@ const reviewsStyles = `
 
     .review-card {
       padding:
-        10px 0;
+        12px 14px;
     }
 
     .review-card:hover {
-      padding-top: 10px;
+      padding-top: 12px;
     }
   }
 
@@ -1002,7 +997,12 @@ export default function ReviewsSection() {
             </div>
           </div>
 
-          <div className="reviews-section__cards">
+          <div
+            className="reviews-section__cards"
+            role="region"
+            aria-label="Recensioni dei clienti"
+            tabIndex={0}
+          >
             {reviews.map((review, index) => (
               <article
                 className="review-card"
@@ -1033,10 +1033,6 @@ export default function ReviewsSection() {
                     <strong className="review-card__name">
                       {review.name}
                     </strong>
-
-                    <span className="review-card__date">
-                      {review.date}
-                    </span>
                   </div>
 
                   <span className="review-card__google">
