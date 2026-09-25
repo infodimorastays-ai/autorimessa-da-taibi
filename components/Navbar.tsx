@@ -1962,6 +1962,57 @@ type TransitionPhase =
   | 'closed'
   | 'opening';
 
+const scrollToTarget = (
+  href: string,
+  behavior: ScrollBehavior = 'auto',
+  historyMode: 'push' | 'replace' = 'replace'
+) => {
+  const target = document.getElementById(
+    href.slice(1)
+  );
+
+  if (!target) return;
+
+  let top = 0;
+
+  if (target !== document.querySelector('main')) {
+    const sections = document.querySelectorAll<HTMLElement>('main > section');
+
+    for (const section of Array.from(sections)) {
+      if (section === target) break;
+      top += parseFloat(window.getComputedStyle(section).height);
+    }
+  }
+
+  const html = document.documentElement;
+  const previousScrollBehavior = html.style.scrollBehavior;
+
+  if (behavior === 'auto') {
+    html.style.scrollBehavior = 'auto';
+  }
+
+  window.scrollTo({ top, behavior });
+
+  if (behavior === 'auto') {
+    window.requestAnimationFrame(() => {
+      html.style.scrollBehavior = previousScrollBehavior;
+    });
+  }
+
+  window.history[historyMode === 'push' ? 'pushState' : 'replaceState'](
+    null,
+    '',
+    href
+  );
+
+  const heading = target.querySelector<HTMLElement>('h1, h2');
+
+  if (heading) {
+    heading.tabIndex = -1;
+    heading.focus({ preventScroll: true });
+  }
+};
+
 export default function Navbar() {
   const [isOpen, setIsOpen] =
     useState(false);
@@ -2048,6 +2099,57 @@ export default function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    const syncHash = () => {
+      if (window.location.hash) {
+        scrollToTarget(window.location.hash);
+      }
+    };
+
+    const initialFrame = window.requestAnimationFrame(syncHash);
+
+    window.addEventListener('hashchange', syncHash);
+
+    const handleSectionLink = (event: globalThis.MouseEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey ||
+        !(event.target instanceof Element)
+      ) return;
+
+      const anchor = event.target.closest<HTMLAnchorElement>('a[href^="#"]');
+      const href = anchor?.getAttribute('href');
+
+      if (
+        !href ||
+        href.length < 2 ||
+        anchor?.closest('.navbar, .navbar__mobile')
+      ) return;
+
+      event.preventDefault();
+
+      scrollToTarget(
+        href,
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches
+          ? 'auto'
+          : 'smooth',
+        'push'
+      );
+    };
+
+    document.addEventListener('click', handleSectionLink);
+
+    return () => {
+      window.cancelAnimationFrame(initialFrame);
+      window.removeEventListener('hashchange', syncHash);
+      document.removeEventListener('click', handleSectionLink);
+    };
+  }, []);
+
   const wait = (
     callback: () => void,
     delay: number
@@ -2059,54 +2161,6 @@ export default function Navbar() {
       );
 
     timersRef.current.push(timer);
-  };
-
-  const scrollToTarget = (
-    href: string
-  ) => {
-    const target =
-      document.querySelector<HTMLElement>(
-        href
-      );
-
-    if (!target) return;
-
-    const html =
-      document.documentElement;
-
-    const previousScrollBehavior =
-      html.style.scrollBehavior;
-
-    html.style.scrollBehavior =
-      'auto';
-
-    target.scrollIntoView({
-      behavior: 'auto',
-      block: 'start',
-    });
-
-    window.requestAnimationFrame(
-      () => {
-        html.style.scrollBehavior =
-          previousScrollBehavior;
-      }
-    );
-
-    window.history.replaceState(
-      null,
-      '',
-      href
-    );
-
-    const heading =
-      target.querySelector<HTMLElement>(
-        'h1, h2'
-      );
-
-    if (heading) {
-      heading.tabIndex = -1;
-      heading.focus({ preventScroll: true });
-    }
   };
 
   const navigateWithTransition = (
