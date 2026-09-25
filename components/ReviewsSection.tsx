@@ -769,6 +769,43 @@ const reviewsStyles = `
     }
   }
 
+  @media (max-width: 768px) and (max-height: 700px) {
+    .reviews-section__inner {
+      padding-top: 38px;
+      padding-bottom: 16px;
+    }
+
+    .reviews-section__heading {
+      padding: 24px 0 12px;
+    }
+
+    .reviews-section__title {
+      font-size:
+        clamp(38px, 11vw, 58px);
+    }
+
+    .reviews-section__side {
+      gap: 10px;
+
+      margin-top: 10px;
+    }
+
+    .review-card,
+    .review-card:hover {
+      padding-top: 7px;
+      padding-bottom: 7px;
+    }
+
+    .review-card__quote {
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+
+    .reviews-section__bottom {
+      padding-top: 8px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .reviews-section {
       transform: none;

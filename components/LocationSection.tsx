@@ -632,6 +632,34 @@ const locationStyles = `
     }
   }
 
+  @media (max-width: 768px) and (max-height: 700px) {
+    .location-section__inner {
+      padding-top: 38px;
+      padding-bottom: 16px;
+    }
+
+    .location-section__main {
+      padding: 26px 0 16px;
+    }
+
+    .location-section__side {
+      gap: 14px;
+
+      margin-top: 18px;
+    }
+
+    .location-detail {
+      min-height: 76px;
+
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .location-section__bottom {
+      padding-top: 8px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .location-section {
       transform: none;

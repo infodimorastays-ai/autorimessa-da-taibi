@@ -627,6 +627,37 @@ const carWashStyles = `
     }
   }
 
+  @media (max-width: 768px) and (max-height: 700px) {
+    .carwash-section__inner {
+      padding-top: 38px;
+      padding-bottom: 16px;
+    }
+
+    .carwash-section__heading {
+      padding: 26px 0 14px;
+    }
+
+    .carwash-section__intro {
+      margin-top: 12px;
+    }
+
+    .wash-price,
+    .wash-price:hover {
+      min-height: 86px;
+
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .wash-price__vehicle {
+      margin-top: 6px;
+    }
+
+    .carwash-section__bottom {
+      padding-top: 8px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .carwash-section {
       transform: none;

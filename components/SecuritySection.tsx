@@ -1391,6 +1391,52 @@ const securityStyles = `
     }
   }
 
+  @media (max-width: 768px) and (max-height: 700px) {
+    .security-section__inner {
+      padding-top: 38px;
+      padding-bottom: 16px;
+    }
+
+    .security-camera {
+      top: 60px;
+      right: -25px;
+
+      width:
+        clamp(150px, 27vw, 180px);
+      height: 125px;
+    }
+
+    .security-section__main {
+      margin-top: 42px;
+    }
+
+    .security-section__eyebrow {
+      margin-bottom: 12px;
+    }
+
+    .security-section__title {
+      font-size:
+        clamp(38px, 11vw, 58px);
+    }
+
+    .security-section__info {
+      margin-top: 20px;
+    }
+
+    .security-section__monitor {
+      flex: 0 0 auto;
+
+      height: 112px;
+
+      margin-top: 20px;
+      padding: 14px 16px;
+    }
+
+    .security-section__bottom {
+      padding-top: 10px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .security-section {
       transform: none;

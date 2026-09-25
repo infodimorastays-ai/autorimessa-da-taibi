@@ -712,6 +712,36 @@ const ratesStyles = `
     }
   }
 
+  @media (max-width: 768px) and (max-height: 700px) {
+    .rates-section__inner {
+      padding-top: 38px;
+      padding-bottom: 16px;
+    }
+
+    .rates-section__heading {
+      padding: 26px 0 14px;
+    }
+
+    .rates-section__intro {
+      margin-top: 12px;
+    }
+
+    .rate-card,
+    .rate-card:hover {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    .rate-card__title {
+      margin-top: 5px;
+      margin-bottom: 3px;
+    }
+
+    .rates-section__bottom {
+      padding-top: 8px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .rates-section {
       transform: none;

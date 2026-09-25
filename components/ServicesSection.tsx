@@ -578,6 +578,29 @@ const servicesStyles = `
     }
   }
 
+  @media (max-width: 768px) and (max-height: 700px) {
+    .services-section__inner {
+      padding-top: 38px;
+      padding-bottom: 16px;
+    }
+
+    .services-section__heading {
+      padding: 28px 0 18px;
+    }
+
+    .services-section__lead {
+      margin-top: 14px;
+    }
+
+    .service-row {
+      min-height: 64px;
+    }
+
+    .services-section__bottom {
+      padding-top: 10px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .services-section {
       transform: none;

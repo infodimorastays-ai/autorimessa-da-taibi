@@ -414,6 +414,29 @@ const introStyles = `
     }
   }
 
+  @media (max-width: 768px) and (max-height: 700px) {
+    .intro-section__inner {
+      padding-top: 42px;
+      padding-bottom: 18px;
+    }
+
+    .intro-section__content {
+      padding: 35px 0;
+    }
+
+    .intro-section__copy {
+      margin-top: 28px;
+    }
+
+    .intro-section__footer {
+      gap: 10px;
+    }
+
+    .intro-section__detail {
+      padding-bottom: 10px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .intro-section {
       transform: none;
