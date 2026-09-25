@@ -304,10 +304,6 @@ const contactStyles = `
   }
 
   .contact-section__whatsapp-arrow {
-    font-family:
-      'Inter',
-      sans-serif;
-
     font-size: 18px;
   }
 
