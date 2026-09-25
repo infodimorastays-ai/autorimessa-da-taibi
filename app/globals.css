@@ -23,7 +23,7 @@
   --layout-inline:
     max(
       var(--layout-gutter),
-      calc((100vw - var(--layout-content-max)) / 2)
+      calc((100% - var(--layout-content-max)) / 2)
     );
 }
 
