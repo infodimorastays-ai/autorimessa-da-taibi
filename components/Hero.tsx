@@ -477,6 +477,33 @@ export default function Hero() {
   const heroRef =
     useRef<HTMLElement>(null);
 
+  const videoRef =
+    useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const motionPreference = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
+
+    const syncPlayback = () => {
+      if (motionPreference.matches) {
+        video.pause();
+      } else {
+        void video.play().catch(() => {});
+      }
+    };
+
+    syncPlayback();
+    motionPreference.addEventListener('change', syncPlayback);
+
+    return () => {
+      motionPreference.removeEventListener('change', syncPlayback);
+    };
+  }, []);
+
   useEffect(() => {
     const hero = heroRef.current;
 
@@ -606,6 +633,7 @@ export default function Hero() {
         aria-labelledby="hero-title"
       >
         <video
+          ref={videoRef}
           className="hero__video"
           autoPlay
           muted

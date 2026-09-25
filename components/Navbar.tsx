@@ -1978,6 +1978,9 @@ export default function Navbar() {
   const timersRef =
     useRef<number[]>([]);
 
+  const toggleRef =
+    useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
     if (!isOpen) {
       if (
@@ -1998,6 +2001,22 @@ export default function Navbar() {
     ) => {
       if (event.key === 'Escape') {
         setIsOpen(false);
+        toggleRef.current?.focus();
+      }
+
+      if (event.key === 'Tab') {
+        const first = toggleRef.current;
+        const last = document.querySelector<HTMLAnchorElement>(
+          '.navbar__mobile-link:last-child'
+        );
+
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
       }
     };
 
@@ -2015,8 +2034,10 @@ export default function Navbar() {
   }, [isOpen]);
 
   useEffect(() => {
+    const timers = timersRef.current;
+
     return () => {
-      timersRef.current.forEach(
+      timers.forEach(
         (timer) => {
           window.clearTimeout(timer);
         }
@@ -2076,6 +2097,16 @@ export default function Navbar() {
       '',
       href
     );
+
+    const heading =
+      target.querySelector<HTMLElement>(
+        'h1, h2'
+      );
+
+    if (heading) {
+      heading.tabIndex = -1;
+      heading.focus({ preventScroll: true });
+    }
   };
 
   const navigateWithTransition = (
@@ -2236,6 +2267,7 @@ export default function Navbar() {
 
         <button
           type="button"
+          ref={toggleRef}
           className={
             isOpen
               ? 'navbar__toggle navbar__toggle--open'
