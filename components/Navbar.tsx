@@ -655,6 +655,29 @@ const navbarStyles = `
     pointer-events: auto;
   }
 
+  .garage-transition::before,
+  .garage-transition::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 8;
+    width: clamp(11px, 1.45vw, 25px);
+    pointer-events: none;
+  }
+
+  .garage-transition::before {
+    left: 0;
+    background: linear-gradient(90deg, #090d0e, #374043 34%, #a3abad 48%, #343d40 65%, #111719);
+    box-shadow: 8px 0 22px rgba(0, 0, 0, 0.55);
+  }
+
+  .garage-transition::after {
+    right: 0;
+    background: linear-gradient(90deg, #111719, #343d40 35%, #a3abad 52%, #374043 66%, #090d0e);
+    box-shadow: -8px 0 22px rgba(0, 0, 0, 0.55);
+  }
+
   /* =========================================================
      BLACKOUT
   ========================================================= */
@@ -689,7 +712,7 @@ const navbarStyles = `
   }
 
   /* =========================================================
-     REALISTIC SATIN SHUTTER
+     BRUSHED ALUMINUM SHUTTER
   ========================================================= */
 
   .garage-transition__shutter {
@@ -708,37 +731,46 @@ const navbarStyles = `
     background:
       linear-gradient(
         90deg,
-        rgba(0, 0, 0, 0.2) 0%,
-        rgba(255, 255, 255, 0.018) 17%,
-        rgba(0, 0, 0, 0.045) 43%,
-        rgba(255, 255, 255, 0.026) 76%,
-        rgba(0, 0, 0, 0.22) 100%
+        rgba(0, 0, 0, 0.34) 0%,
+        rgba(255, 255, 255, 0.13) 14%,
+        rgba(0, 0, 0, 0.05) 38%,
+        rgba(255, 255, 255, 0.08) 69%,
+        rgba(0, 0, 0, 0.33) 100%
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.018) 0px,
+        transparent 1px,
+        rgba(0, 0, 0, 0.022) 3px,
+        transparent 5px
       ),
       repeating-linear-gradient(
         to bottom,
         transparent 0px,
-        transparent 83px,
-        rgba(0, 0, 0, 0.06) 85px,
-        transparent 151px,
-        rgba(255, 255, 255, 0.025) 153px,
-        transparent 229px
+        transparent 88px,
+        rgba(0, 0, 0, 0.055) 91px,
+        transparent 177px,
+        rgba(255, 255, 255, 0.035) 181px,
+        transparent 263px
       ),
       repeating-linear-gradient(
         to bottom,
-        #696c6e 0px,
-        #6e7173 4px,
-        #686b6d 12px,
-        #606365 22px,
-        #575a5c 30px,
-        #444749 35px,
-        #303334 38px,
-        #535658 41px,
-        #636668 43px
+        #939b9d 0px,
+        #cbd0d0 2px,
+        #d2d5d4 4px,
+        #afb7b8 11px,
+        #929b9d 23px,
+        #747e80 34px,
+        #4a5457 41px,
+        #283134 44px,
+        #1c2427 46px,
+        #9da7a9 49px,
+        #bac1c1 52px
       );
 
     box-shadow:
-      inset 0 0 140px
-      rgba(0, 0, 0, 0.3),
+      inset 0 0 130px
+      rgba(0, 0, 0, 0.23),
 
       inset 0 0 2px
       rgba(255, 255, 255, 0.2),
@@ -767,17 +799,25 @@ const navbarStyles = `
     z-index: 1;
 
     background:
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        rgba(255, 255, 255, 0.016) 2px,
+        transparent 3px,
+        rgba(0, 0, 0, 0.012) 5px,
+        transparent 7px
+      ),
       linear-gradient(
         90deg,
-        rgba(0, 0, 0, 0.12) 0%,
-        transparent 19%,
-        rgba(255, 255, 255, 0.035) 37%,
-        transparent 54%,
-        rgba(255, 255, 255, 0.02) 78%,
-        rgba(0, 0, 0, 0.13) 100%
+        rgba(0, 0, 0, 0.2) 0%,
+        transparent 21%,
+        rgba(255, 255, 255, 0.06) 37%,
+        transparent 53%,
+        rgba(255, 255, 255, 0.03) 77%,
+        rgba(0, 0, 0, 0.19) 100%
       );
 
-    mix-blend-mode: soft-light;
+    mix-blend-mode: overlay;
 
     pointer-events: none;
   }
@@ -823,13 +863,13 @@ const navbarStyles = `
 
     z-index: 2;
 
-    opacity: 0.13;
+    opacity: 0.1;
 
     background:
       repeating-linear-gradient(
-        90deg,
+        to bottom,
         transparent 0px,
-        rgba(255, 255, 255, 0.025) 1px,
+        rgba(255, 255, 255, 0.02) 1px,
         transparent 2px,
         transparent 4px
       );
@@ -882,32 +922,44 @@ const navbarStyles = `
     position: absolute;
 
     left: 50%;
-    bottom: 47px;
+    top: 45%;
 
     z-index: 4;
 
     transform:
-      translateX(-50%);
+      translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: min(90vw, 1100px);
 
     font-family:
-      'Barlow Condensed',
+      'Archivo Black',
       sans-serif;
 
-    font-size: 8px;
-    font-weight: 500;
+    font-weight: 900;
 
-    line-height: 1;
+    line-height: 0.96;
 
-    letter-spacing: 0.36em;
+    letter-spacing: 0.015em;
 
-    color:
-      rgba(255, 255, 255, 0.16);
+    color: #1b262a;
 
     text-shadow:
-      0 1px 1px
-      rgba(0, 0, 0, 0.7);
+      0 1px 0 rgba(255, 255, 255, 0.28),
+      1px 2px 3px rgba(0, 0, 0, 0.23);
 
     white-space: nowrap;
+  }
+
+  .garage-transition__shutter-label span:first-child {
+    font-size: clamp(32px, 5.8vw, 94px);
+  }
+
+  .garage-transition__shutter-label span:last-child {
+    font-size: clamp(44px, 7.4vw, 120px);
   }
 
   .garage-transition--closing
@@ -1059,16 +1111,16 @@ const navbarStyles = `
 
     width:
       clamp(
-        115px,
-        14vw,
-        235px
+        150px,
+        17vw,
+        295px
       );
 
     height:
       clamp(
-        13px,
-        1.2vw,
-        19px
+        22px,
+        2vw,
+        34px
       );
 
     opacity: 0;
@@ -1088,8 +1140,8 @@ const navbarStyles = `
 
   .garage-transition__lamp--right {
     top: 61.5%;
-    right: 21%;
-    width: clamp(105px, 12.8vw, 220px);
+    right: 18%;
+    width: clamp(140px, 16vw, 275px);
   }
 
   /*
@@ -1140,9 +1192,9 @@ const navbarStyles = `
 
     height:
       clamp(
-        2px,
-        0.22vw,
-        4px
+        5px,
+        0.55vw,
+        9px
       );
 
     transform:
@@ -1154,27 +1206,29 @@ const navbarStyles = `
     background:
       linear-gradient(
         90deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        #ffffff 9%,
-        #ffffff 88%,
-        rgba(255, 255, 255, 0.15) 100%
+        rgba(190, 225, 245, 0.15) 0%,
+        #dcf4ff 7%,
+        #ffffff 22%,
+        #ffffff 80%,
+        #d2efff 93%,
+        rgba(190, 225, 245, 0.2) 100%
       );
 
     box-shadow:
-      0 0 3px
-      rgba(255, 255, 255, 0.9),
+      0 0 4px 2px
+      rgba(255, 255, 255, 1),
 
-      0 0 6px
-      rgba(255, 255, 255, 0.78),
+      0 0 13px 5px
+      rgba(240, 251, 255, 0.98),
 
-      0 0 13px
-      rgba(246, 252, 255, 0.58),
+      0 0 32px 11px
+      rgba(220, 242, 255, 0.85),
 
-      0 0 28px
-      rgba(232, 247, 255, 0.36),
+      0 0 76px 18px
+      rgba(196, 229, 255, 0.58),
 
-      0 0 60px
-      rgba(215, 239, 255, 0.22);
+      0 0 130px 30px
+      rgba(179, 216, 248, 0.33);
   }
 
   .garage-transition__lamp--right
@@ -1208,8 +1262,8 @@ const navbarStyles = `
 
     top: 61%;
 
-    width: 28vw;
-    height: 1px;
+    width: 43vw;
+    height: 2px;
 
     opacity: 0;
 
@@ -1220,11 +1274,11 @@ const navbarStyles = `
       linear-gradient(
         90deg,
         transparent 0%,
-        rgba(238, 248, 255, 0.04) 14%,
-        rgba(248, 253, 255, 0.18) 42%,
-        rgba(255, 255, 255, 0.42) 50%,
-        rgba(248, 253, 255, 0.18) 58%,
-        rgba(238, 248, 255, 0.04) 86%,
+        rgba(215, 239, 255, 0.1) 14%,
+        rgba(248, 253, 255, 0.58) 42%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(248, 253, 255, 0.58) 58%,
+        rgba(215, 239, 255, 0.1) 86%,
         transparent 100%
       );
 
@@ -1232,20 +1286,20 @@ const navbarStyles = `
       blur(0.7px);
 
     box-shadow:
-      0 0 4px
-      rgba(255, 255, 255, 0.4),
+      0 0 10px
+      rgba(255, 255, 255, 0.95),
 
-      0 0 12px
-      rgba(226, 243, 255, 0.2);
+      0 0 32px
+      rgba(226, 243, 255, 0.75);
   }
 
   .garage-transition__flare--left {
-    left: 8%;
+    left: 5%;
   }
 
   .garage-transition__flare--right {
     top: 61.5%;
-    right: 10%;
+    right: 5%;
   }
 
   .garage-transition--opening
@@ -1266,8 +1320,8 @@ const navbarStyles = `
 
     top: 61%;
 
-    width: 29vw;
-    height: 27vh;
+    width: 44vw;
+    height: 41vh;
 
     opacity: 0;
 
@@ -1278,15 +1332,15 @@ const navbarStyles = `
     border-radius: 50%;
 
     filter:
-      blur(28px);
+      blur(26px);
 
     background:
       radial-gradient(
         ellipse at center,
-        rgba(255, 255, 255, 0.36) 0%,
-        rgba(249, 253, 255, 0.28) 8%,
-        rgba(235, 247, 255, 0.12) 27%,
-        rgba(218, 239, 255, 0.035) 48%,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(249, 253, 255, 0.9) 8%,
+        rgba(224, 244, 255, 0.56) 27%,
+        rgba(200, 233, 255, 0.18) 48%,
         transparent 72%
       );
   }
@@ -1324,17 +1378,17 @@ const navbarStyles = `
     background:
       radial-gradient(
         ellipse at 23% 61%,
-        rgba(255, 255, 255, 0.36) 0%,
-        rgba(253, 254, 255, 0.18) 9%,
-        rgba(243, 250, 255, 0.05) 27%,
-        transparent 43%
+        rgba(255, 255, 255, 0.96) 0%,
+        rgba(247, 253, 255, 0.72) 9%,
+        rgba(220, 242, 255, 0.24) 27%,
+        transparent 51%
       ),
       radial-gradient(
         ellipse at 76% 62%,
-        rgba(255, 255, 255, 0.3) 0%,
-        rgba(253, 254, 255, 0.15) 9%,
-        rgba(243, 250, 255, 0.04) 27%,
-        transparent 43%
+        rgba(255, 255, 255, 0.94) 0%,
+        rgba(247, 253, 255, 0.68) 9%,
+        rgba(220, 242, 255, 0.22) 27%,
+        transparent 51%
       );
 
     mix-blend-mode: screen;
@@ -1365,10 +1419,10 @@ const navbarStyles = `
 
     background:
       rgba(
-        220,
-        230,
-        238,
-        0.12
+        233,
+        246,
+        255,
+        0.54
       );
 
     pointer-events: none;
@@ -1415,9 +1469,9 @@ const navbarStyles = `
     background:
       radial-gradient(
         ellipse at center,
-        rgba(247, 252, 255, 0.28) 0%,
-        rgba(229, 244, 255, 0.1) 31%,
-        rgba(210, 235, 255, 0.025) 56%,
+        rgba(247, 252, 255, 0.72) 0%,
+        rgba(229, 244, 255, 0.36) 31%,
+        rgba(210, 235, 255, 0.08) 56%,
         transparent 72%
       );
   }
@@ -1466,19 +1520,19 @@ const navbarStyles = `
     }
 
     28% {
-      opacity: 0.14;
+      opacity: 0.26;
     }
 
     32% {
-      opacity: 0.68;
+      opacity: 0.84;
     }
 
     37% {
-      opacity: 0.52;
+      opacity: 0.65;
     }
 
     43% {
-      opacity: 0.88;
+      opacity: 1;
 
       transform:
         translateY(-50%)
@@ -1486,7 +1540,7 @@ const navbarStyles = `
     }
 
     78% {
-      opacity: 0.9;
+      opacity: 1;
 
       transform:
         translateY(-50%)
@@ -1494,7 +1548,7 @@ const navbarStyles = `
     }
 
     90% {
-      opacity: 0.56;
+      opacity: 0.72;
     }
 
     100% {
@@ -1504,20 +1558,20 @@ const navbarStyles = `
 
   @keyframes realistic-flare {
     0%,
-    36% {
+    38% {
       opacity: 0;
     }
 
-    45% {
-      opacity: 0.08;
+    50% {
+      opacity: 0.62;
     }
 
-    72% {
-      opacity: 0.18;
+    78% {
+      opacity: 0.88;
     }
 
     90% {
-      opacity: 0.07;
+      opacity: 0.32;
     }
 
     100% {
@@ -1536,11 +1590,11 @@ const navbarStyles = `
     }
 
     43% {
-      opacity: 0.1;
+      opacity: 0.38;
     }
 
     65% {
-      opacity: 0.25;
+      opacity: 0.86;
 
       transform:
         translateY(-50%)
@@ -1548,7 +1602,7 @@ const navbarStyles = `
     }
 
     80% {
-      opacity: 0.29;
+      opacity: 0.98;
 
       transform:
         translateY(-50%)
@@ -1556,7 +1610,7 @@ const navbarStyles = `
     }
 
     91% {
-      opacity: 0.12;
+      opacity: 0.42;
     }
 
     100% {
@@ -1575,15 +1629,15 @@ const navbarStyles = `
     }
 
     52% {
-      opacity: 0.08;
+      opacity: 0.32;
     }
 
     75% {
-      opacity: 0.24;
+      opacity: 0.84;
     }
 
     92% {
-      opacity: 0.1;
+      opacity: 0.32;
     }
 
     100% {
@@ -1598,11 +1652,11 @@ const navbarStyles = `
     }
 
     78% {
-      opacity: 0.1;
+      opacity: 0.36;
     }
 
     88% {
-      opacity: 0.15;
+      opacity: 0.56;
     }
 
     100% {
@@ -1621,11 +1675,11 @@ const navbarStyles = `
     }
 
     52% {
-      opacity: 0.14;
+      opacity: 0.3;
     }
 
     76% {
-      opacity: 0.3;
+      opacity: 0.68;
 
       transform:
         translateX(-50%)
@@ -1633,7 +1687,7 @@ const navbarStyles = `
     }
 
     90% {
-      opacity: 0.12;
+      opacity: 0.28;
     }
 
     100% {
@@ -1704,31 +1758,31 @@ const navbarStyles = `
     .garage-transition__lamp {
       top: 62%;
 
-      width: 25vw;
-      min-width: 100px;
+      width: 29vw;
+      min-width: 130px;
 
-      height: 16px;
+      height: 23px;
     }
 
     .garage-transition__lamp--left {
-      left: 11%;
+      left: 8%;
     }
 
     .garage-transition__lamp--right {
       top: 62.4%;
-      right: 9%;
+      right: 7%;
     }
 
     .garage-transition__flare {
       top: 62%;
 
-      width: 38vw;
+      width: 46vw;
     }
 
     .garage-transition__lamp-bloom {
       top: 62%;
 
-      width: 43vw;
+      width: 53vw;
     }
 
     .garage-transition__lamp-bloom--left {
@@ -1801,62 +1855,72 @@ const navbarStyles = `
       background:
         linear-gradient(
           90deg,
-          rgba(0, 0, 0, 0.18) 0%,
-          rgba(255, 255, 255, 0.02) 24%,
-          rgba(0, 0, 0, 0.045) 52%,
-          rgba(255, 255, 255, 0.018) 73%,
-          rgba(0, 0, 0, 0.2) 100%
+          rgba(0, 0, 0, 0.31) 0%,
+          rgba(255, 255, 255, 0.11) 23%,
+          rgba(0, 0, 0, 0.05) 51%,
+          rgba(255, 255, 255, 0.08) 74%,
+          rgba(0, 0, 0, 0.31) 100%
+        ),
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.018) 0px,
+          transparent 1px,
+          rgba(0, 0, 0, 0.022) 3px,
+          transparent 5px
         ),
         repeating-linear-gradient(
           to bottom,
           transparent 0px,
-          transparent 76px,
-          rgba(0, 0, 0, 0.06) 78px,
-          transparent 137px,
-          rgba(255, 255, 255, 0.02) 139px,
+          transparent 73px,
+          rgba(0, 0, 0, 0.055) 76px,
+          transparent 145px,
+          rgba(255, 255, 255, 0.035) 149px,
           transparent 211px
         ),
         repeating-linear-gradient(
           to bottom,
-          #696c6e 0px,
-          #6d7072 3px,
-          #66696b 9px,
-          #5f6264 17px,
-          #55585a 24px,
-          #3e4143 28px,
-          #303334 30px,
-          #5b5e60 33px
+          #939b9d 0px,
+          #cbd0d0 2px,
+          #d2d5d4 4px,
+          #aeb6b7 8px,
+          #929b9d 17px,
+          #737d80 26px,
+          #4b5558 31px,
+          #283134 34px,
+          #1c2427 36px,
+          #9da7a9 39px,
+          #bac1c1 42px
         );
     }
 
     .garage-transition__lamp {
       top: 62%;
 
-      width: 30vw;
-      min-width: 104px;
+      width: 34vw;
+      min-width: 120px;
 
-      height: 15px;
+      height: 22px;
     }
 
     .garage-transition__lamp--left {
-      left: 8%;
+      left: 6%;
     }
 
     .garage-transition__lamp--right {
       top: 62.4%;
-      right: 7%;
-      width: 28vw;
-      min-width: 96px;
+      right: 5%;
+      width: 32vw;
+      min-width: 112px;
     }
 
     .garage-transition__flare {
       top: 62%;
-      width: 40vw;
+      width: 52vw;
     }
 
     .garage-transition__lamp-bloom {
       top: 62%;
-      width: 50vw;
+      width: 60vw;
     }
 
     .garage-transition__lamp-bloom--left {
@@ -2310,7 +2374,8 @@ export default function Navbar() {
           <div className="garage-transition__reflection" />
 
           <span className="garage-transition__shutter-label">
-            AUTORIMESSA DA TAIBI
+            <span>AUTORIMESSA</span>
+            <span>DA TAIBI</span>
           </span>
         </div>
       </div>
