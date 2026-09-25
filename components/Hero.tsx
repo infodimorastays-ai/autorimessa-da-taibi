@@ -117,16 +117,14 @@ const heroStyles = `
   .hero__content {
     position: absolute;
 
-    left: 40px;
+    left: var(--layout-inline);
+    right: var(--layout-inline);
     bottom: 92px;
 
     z-index: 3;
 
-    width:
-      min(
-        1120px,
-        calc(100% - 80px)
-      );
+    width: auto;
+    max-width: 1120px;
   }
 
   .hero__eyebrow {
@@ -260,8 +258,8 @@ const heroStyles = `
   .hero__bottom {
     position: absolute;
 
-    left: 40px;
-    right: 40px;
+    left: var(--layout-inline);
+    right: var(--layout-inline);
     bottom: 24px;
 
     z-index: 4;
@@ -323,11 +321,9 @@ const heroStyles = `
 
   @media (max-width: 1100px) {
     .hero__content {
-      left: 28px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
       bottom: 88px;
-
-      width:
-        calc(100% - 56px);
     }
 
     .hero__title {
@@ -340,8 +336,8 @@ const heroStyles = `
     }
 
     .hero__bottom {
-      left: 28px;
-      right: 28px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
     }
   }
 
@@ -379,11 +375,9 @@ const heroStyles = `
     }
 
     .hero__content {
-      left: 20px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
       bottom: 105px;
-
-      width:
-        calc(100% - 40px);
     }
 
     .hero__title {
@@ -418,8 +412,8 @@ const heroStyles = `
     }
 
     .hero__bottom {
-      left: 20px;
-      right: 20px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
     }
 
     .hero__address-label {
@@ -429,11 +423,9 @@ const heroStyles = `
 
   @media (max-width: 480px) {
     .hero__content {
-      left: 17px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
       bottom: 98px;
-
-      width:
-        calc(100% - 34px);
     }
 
     .hero__title {
@@ -454,8 +446,8 @@ const heroStyles = `
     }
 
     .hero__bottom {
-      left: 17px;
-      right: 17px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
     }
 
     .hero__address {

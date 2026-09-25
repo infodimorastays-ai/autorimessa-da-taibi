@@ -76,8 +76,8 @@ const ratesStyles = `
     position: absolute;
 
     top: 0;
-    left: 40px;
-    right: 40px;
+    left: var(--layout-inline);
+    right: var(--layout-inline);
 
     height: 1px;
 
@@ -94,7 +94,7 @@ const ratesStyles = `
 
     padding:
       clamp(46px, 5vw, 72px)
-      40px
+      var(--layout-inline)
       24px;
   }
 
@@ -475,13 +475,13 @@ const ratesStyles = `
 
   @media (max-width: 1100px) {
     .rates-section::before {
-      left: 28px;
-      right: 28px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
     }
 
     .rates-section__inner {
-      padding-left: 28px;
-      padding-right: 28px;
+      padding-left: var(--layout-inline);
+      padding-right: var(--layout-inline);
     }
   }
 
@@ -560,14 +560,14 @@ const ratesStyles = `
     }
 
     .rates-section::before {
-      left: 20px;
-      right: 20px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
     }
 
     .rates-section__inner {
       padding:
         48px
-        20px
+        var(--layout-inline)
         22px;
     }
 
@@ -661,14 +661,14 @@ const ratesStyles = `
 
   @media (max-width: 480px) {
     .rates-section::before {
-      left: 17px;
-      right: 17px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
     }
 
     .rates-section__inner {
       padding:
         42px
-        17px
+        var(--layout-inline)
         18px;
     }
 

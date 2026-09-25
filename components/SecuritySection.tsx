@@ -118,7 +118,7 @@ const securityStyles = `
 
     padding:
       clamp(48px, 5vw, 74px)
-      40px
+      var(--layout-inline)
       28px;
   }
 
@@ -1190,8 +1190,8 @@ const securityStyles = `
 
   @media (max-width: 1100px) {
     .security-section__inner {
-      padding-left: 28px;
-      padding-right: 28px;
+      padding-left: var(--layout-inline);
+      padding-right: var(--layout-inline);
     }
 
     .security-section__main {
@@ -1274,7 +1274,7 @@ const securityStyles = `
     .security-section__inner {
       padding:
         48px
-        20px
+        var(--layout-inline)
         22px;
     }
 
@@ -1349,7 +1349,7 @@ const securityStyles = `
     .security-section__inner {
       padding:
         42px
-        17px
+        var(--layout-inline)
         18px;
     }
 

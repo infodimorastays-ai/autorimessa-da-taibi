@@ -75,8 +75,8 @@ const introStyles = `
     position: absolute;
 
     top: 0;
-    left: 40px;
-    right: 40px;
+    left: var(--layout-inline);
+    right: var(--layout-inline);
 
     height: 1px;
 
@@ -93,7 +93,7 @@ const introStyles = `
 
     padding:
       clamp(70px, 8vw, 120px)
-      40px
+      var(--layout-inline)
       34px;
   }
 
@@ -273,13 +273,13 @@ const introStyles = `
 
   @media (max-width: 1100px) {
     .intro-section::before {
-      left: 28px;
-      right: 28px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
     }
 
     .intro-section__inner {
-      padding-left: 28px;
-      padding-right: 28px;
+      padding-left: var(--layout-inline);
+      padding-right: var(--layout-inline);
     }
 
     .intro-section__content {
@@ -323,14 +323,14 @@ const introStyles = `
     }
 
     .intro-section::before {
-      left: 20px;
-      right: 20px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
     }
 
     .intro-section__inner {
       padding:
         68px
-        20px
+        var(--layout-inline)
         28px;
     }
 
@@ -386,13 +386,13 @@ const introStyles = `
 
   @media (max-width: 480px) {
     .intro-section::before {
-      left: 17px;
-      right: 17px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
     }
 
     .intro-section__inner {
-      padding-left: 17px;
-      padding-right: 17px;
+      padding-left: var(--layout-inline);
+      padding-right: var(--layout-inline);
     }
 
     .intro-section__content {

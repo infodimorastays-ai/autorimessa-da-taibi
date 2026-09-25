@@ -62,7 +62,9 @@ const navbarStyles = `
     justify-content: space-between;
 
     width: 100%;
-    padding: 24px 40px;
+    padding:
+      24px
+      var(--layout-inline);
 
     pointer-events: none;
   }
@@ -400,7 +402,7 @@ const navbarStyles = `
 
     padding:
       105px
-      24px
+      var(--layout-inline)
       34px;
 
     overflow: hidden;
@@ -472,7 +474,7 @@ const navbarStyles = `
     position: absolute;
 
     top: 105px;
-    left: 24px;
+    left: var(--layout-inline);
 
     display: flex;
     align-items: center;
@@ -601,8 +603,8 @@ const navbarStyles = `
   .navbar__mobile-footer {
     position: absolute;
 
-    left: 24px;
-    right: 24px;
+    left: var(--layout-inline);
+    right: var(--layout-inline);
     bottom: 28px;
 
     display: flex;
@@ -1658,7 +1660,7 @@ const navbarStyles = `
     .navbar {
       padding:
         24px
-        28px;
+        var(--layout-inline);
     }
 
     .navbar__link {
@@ -1684,7 +1686,9 @@ const navbarStyles = `
 
   @media (max-width: 768px) {
     .navbar {
-      padding: 20px;
+      padding:
+        20px
+        var(--layout-inline);
     }
 
     .navbar__brand-mark {
@@ -1744,7 +1748,9 @@ const navbarStyles = `
 
   @media (max-width: 480px) {
     .navbar {
-      padding: 17px;
+      padding:
+        17px
+        var(--layout-inline);
     }
 
     .navbar__brand {
@@ -1772,13 +1778,13 @@ const navbarStyles = `
     .navbar__mobile {
       padding:
         100px
-        17px
+        var(--layout-inline)
         30px;
     }
 
     .navbar__mobile-header {
       top: 91px;
-      left: 17px;
+      left: var(--layout-inline);
     }
 
     .navbar__mobile-link {
@@ -1791,8 +1797,8 @@ const navbarStyles = `
     }
 
     .navbar__mobile-footer {
-      left: 17px;
-      right: 17px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
       bottom: 22px;
     }
 

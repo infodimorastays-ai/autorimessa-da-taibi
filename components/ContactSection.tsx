@@ -65,8 +65,8 @@ const contactStyles = `
     position: absolute;
 
     top: 0;
-    left: 40px;
-    right: 40px;
+    left: var(--layout-inline);
+    right: var(--layout-inline);
 
     height: 1px;
 
@@ -109,7 +109,7 @@ const contactStyles = `
 
     padding:
       clamp(46px, 5vw, 72px)
-      40px
+      var(--layout-inline)
       26px;
   }
 
@@ -489,13 +489,13 @@ const contactStyles = `
 
   @media (max-width: 1100px) {
     .contact-section::before {
-      left: 28px;
-      right: 28px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
     }
 
     .contact-section__inner {
-      padding-left: 28px;
-      padding-right: 28px;
+      padding-left: var(--layout-inline);
+      padding-right: var(--layout-inline);
     }
 
     .contact-section__main {
@@ -563,8 +563,8 @@ const contactStyles = `
     }
 
     .contact-section::before {
-      left: 20px;
-      right: 20px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
     }
 
     .contact-section__inner {
@@ -572,7 +572,7 @@ const contactStyles = `
 
       padding:
         48px
-        20px
+        var(--layout-inline)
         22px;
     }
 
@@ -653,14 +653,14 @@ const contactStyles = `
 
   @media (max-width: 480px) {
     .contact-section::before {
-      left: 17px;
-      right: 17px;
+      left: var(--layout-inline);
+      right: var(--layout-inline);
     }
 
     .contact-section__inner {
       padding:
         42px
-        17px
+        var(--layout-inline)
         18px;
     }
 
