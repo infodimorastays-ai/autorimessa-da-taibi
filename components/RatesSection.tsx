@@ -63,9 +63,7 @@ const ratesStyles = `
         )
       );
 
-    will-change:
-      transform,
-      filter;
+    will-change: transform;
 
     backface-visibility: hidden;
   }

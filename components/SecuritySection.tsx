@@ -76,9 +76,7 @@ const securityStyles = `
         )
       );
 
-    will-change:
-      transform,
-      filter;
+    will-change: transform;
 
     backface-visibility: hidden;
   }

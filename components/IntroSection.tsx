@@ -62,9 +62,7 @@ const introStyles = `
         )
       );
 
-    will-change:
-      transform,
-      filter;
+    will-change: transform;
 
     backface-visibility: hidden;
   }
