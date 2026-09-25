@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap');
 
 :root {
   --background: #050505;
@@ -10,6 +10,11 @@
 
   --border: rgba(255, 255, 255, 0.3);
   --border-soft: rgba(255, 255, 255, 0.12);
+
+  --font-body: 'Inter', sans-serif;
+  --font-editorial:
+    var(--font-clash-display),
+    sans-serif;
 
   --layout-content-max: 1536px;
   --layout-gutter: clamp(40px, 3.75vw, 72px);
@@ -52,9 +57,7 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family:
-    var(--font-clash-display),
-    sans-serif;
+  font-family: var(--font-body);
   overflow-x: hidden;
 
   -webkit-font-smoothing: antialiased;
