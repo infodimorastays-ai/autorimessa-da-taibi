@@ -5,6 +5,9 @@ import { useEffect, useRef } from 'react';
 const HERO_VIDEO_URL =
   'https://pub-fd03e0c0deb14bfda1dea88f5eb37f8b.r2.dev/hero_video_nu1atx.mp4';
 
+const WHATSAPP_URL =
+  'https://wa.me/393281693326';
+
 const GOOGLE_MAPS_URL =
   'https://www.google.com/maps/place//data=!4m2!3m1!1s0x47886d20eae2a6d9:0xef1441f915874180?sa=X&ved=1t:8290&ictx=111';
 
@@ -246,6 +249,32 @@ const heroStyles = `
       border-color 200ms ease;
   }
 
+  .hero__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+
+  .hero__whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 16px;
+    background: #f5f3ed;
+    color: #080808;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    transition: background 200ms ease;
+  }
+
+  .hero__whatsapp:hover,
+  .hero__whatsapp:focus-visible {
+    background: #ffffff;
+  }
+
   .hero__cta:hover,
   .hero__cta:focus-visible {
     gap: 21px;
@@ -406,6 +435,10 @@ const heroStyles = `
     }
 
     .hero__cta {
+      margin-top: 0;
+    }
+
+    .hero__actions {
       margin-top: 22px;
     }
 
@@ -470,6 +503,10 @@ const heroStyles = `
     .hero__cta {
       transition: none;
     }
+
+    .hero__whatsapp {
+      transition: none;
+    }
   }
 `;
 
@@ -481,38 +518,19 @@ export default function Hero() {
     useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const motionPreference = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    );
-
-    const syncPlayback = () => {
-      if (motionPreference.matches) {
-        video.pause();
-      } else {
-        void video.play().catch(() => {});
-      }
-    };
-
-    syncPlayback();
-    motionPreference.addEventListener('change', syncPlayback);
-
-    return () => {
-      motionPreference.removeEventListener('change', syncPlayback);
-    };
-  }, []);
-
-  useEffect(() => {
     const hero = heroRef.current;
+    const video = videoRef.current;
 
     const intro =
       document.querySelector<HTMLElement>(
         '#autorimessa'
       );
 
-    if (!hero || !intro) return;
+    if (!hero || !intro || !video) return;
+
+    const motionPreference = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
 
     let animationFrame = 0;
 
@@ -580,6 +598,17 @@ export default function Hero() {
           'hero--covered'
         );
       }
+
+      const shouldPlay =
+        !motionPreference.matches &&
+        !document.hidden &&
+        progress < 0.995;
+
+      if (shouldPlay && video.paused) {
+        void video.play().catch(() => {});
+      } else if (!shouldPlay && !video.paused) {
+        video.pause();
+      }
     };
 
     const requestUpdate = () => {
@@ -608,6 +637,16 @@ export default function Hero() {
       requestUpdate
     );
 
+    motionPreference.addEventListener(
+      'change',
+      requestUpdate
+    );
+
+    document.addEventListener(
+      'visibilitychange',
+      requestUpdate
+    );
+
     return () => {
       cancelAnimationFrame(
         animationFrame
@@ -620,6 +659,16 @@ export default function Hero() {
 
       window.removeEventListener(
         'resize',
+        requestUpdate
+      );
+
+      motionPreference.removeEventListener(
+        'change',
+        requestUpdate
+      );
+
+      document.removeEventListener(
+        'visibilitychange',
         requestUpdate
       );
     };
@@ -679,18 +728,31 @@ export default function Hero() {
               videosorveglianza.
             </p>
 
-            <a
-              href="#autorimessa"
-              className="hero__cta"
-            >
-              <span>
-                SCOPRI L&apos;AUTORIMESSA
-              </span>
+            <div className="hero__actions">
+              <a
+                href={WHATSAPP_URL}
+                className="hero__whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contatta Autorimessa Da Taibi su WhatsApp"
+              >
+                <span>SCRIVICI SU WHATSAPP</span>
+                <span aria-hidden="true">↗</span>
+              </a>
 
-              <span aria-hidden="true">
-                ↘
-              </span>
-            </a>
+              <a
+                href="#autorimessa"
+                className="hero__cta"
+              >
+                <span>
+                  SCOPRI L&apos;AUTORIMESSA
+                </span>
+
+                <span aria-hidden="true">
+                  ↘
+                </span>
+              </a>
+            </div>
           </div>
         </div>
 
