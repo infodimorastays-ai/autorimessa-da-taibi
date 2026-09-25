@@ -147,13 +147,13 @@ const contactStyles = `
 
     gap: 9px;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.16em;
 
     color:
-      rgba(0, 0, 0, 0.42);
+      rgba(0, 0, 0, 0.68);
   }
 
   .contact-section__status-dot {
@@ -189,13 +189,13 @@ const contactStyles = `
     margin:
       0 0 18px;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.18em;
 
     color:
-      rgba(0, 0, 0, 0.38);
+      rgba(0, 0, 0, 0.62);
   }
 
   .contact-section__title {
@@ -463,7 +463,7 @@ const contactStyles = `
       1px solid
       rgba(0, 0, 0, 0.3);
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.15em;

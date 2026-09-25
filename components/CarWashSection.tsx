@@ -159,13 +159,13 @@ const carWashStyles = `
 
     gap: 9px;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.16em;
 
     color:
-      rgba(255, 255, 255, 0.4);
+      rgba(255, 255, 255, 0.68);
   }
 
   .carwash-section__status-dot {
@@ -295,13 +295,13 @@ const carWashStyles = `
   }
 
   .wash-price__index {
-    font-size: 7px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.15em;
 
     color:
-      rgba(255, 255, 255, 0.28);
+      rgba(255, 255, 255, 0.62);
   }
 
   .wash-price__vehicle {
@@ -357,7 +357,7 @@ const carWashStyles = `
   .carwash-section__note {
     margin: 0;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     line-height: 1.45;
@@ -365,19 +365,19 @@ const carWashStyles = `
     letter-spacing: 0.14em;
 
     color:
-      rgba(255, 255, 255, 0.38);
+      rgba(255, 255, 255, 0.66);
   }
 
   .carwash-section__bottom-center {
     justify-self: center;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.15em;
 
     color:
-      rgba(255, 255, 255, 0.32);
+      rgba(255, 255, 255, 0.62);
   }
 
   .carwash-section__cta {
@@ -394,7 +394,7 @@ const carWashStyles = `
       1px solid
       rgba(255, 255, 255, 0.3);
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.15em;
@@ -507,7 +507,7 @@ const carWashStyles = `
     }
 
     .carwash-section__status {
-      font-size: 7px;
+      font-size: 9px;
     }
 
     .carwash-section__heading {

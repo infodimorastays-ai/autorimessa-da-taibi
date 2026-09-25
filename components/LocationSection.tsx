@@ -160,13 +160,13 @@ const locationStyles = `
 
     gap: 9px;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.16em;
 
     color:
-      rgba(0, 0, 0, 0.46);
+      rgba(0, 0, 0, 0.68);
   }
 
   .location-section__availability-dot {
@@ -202,13 +202,13 @@ const locationStyles = `
     margin:
       0 0 18px;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.18em;
 
     color:
-      rgba(0, 0, 0, 0.38);
+      rgba(0, 0, 0, 0.62);
   }
 
   .location-section__title {
@@ -255,13 +255,13 @@ const locationStyles = `
 
     margin-bottom: 10px;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.16em;
 
     color:
-      rgba(0, 0, 0, 0.34);
+      rgba(0, 0, 0, 0.62);
   }
 
   .location-section__address {
@@ -350,13 +350,13 @@ const locationStyles = `
   }
 
   .location-detail__label {
-    font-size: 7px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.16em;
 
     color:
-      rgba(0, 0, 0, 0.34);
+      rgba(0, 0, 0, 0.64);
   }
 
   .location-detail__value {
@@ -381,13 +381,13 @@ const locationStyles = `
   .location-detail__sub {
     margin-top: 7px;
 
-    font-size: 8px;
+    font-size: 10px;
     line-height: 1.4;
 
     letter-spacing: 0.05em;
 
     color:
-      rgba(0, 0, 0, 0.44);
+      rgba(0, 0, 0, 0.68);
   }
 
   .location-section__bottom {
@@ -402,13 +402,13 @@ const locationStyles = `
 
     padding-top: 18px;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.15em;
 
     color:
-      rgba(0, 0, 0, 0.38);
+      rgba(0, 0, 0, 0.64);
   }
 
   .location-section__bottom-center {

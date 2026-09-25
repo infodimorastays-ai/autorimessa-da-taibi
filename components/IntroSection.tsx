@@ -260,13 +260,13 @@ const introStyles = `
       var(--font-clash-display),
       sans-serif;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.16em;
 
     color:
-      rgba(255, 255, 255, 0.35);
+      rgba(255, 255, 255, 0.68);
   }
 
   @media (max-width: 1100px) {

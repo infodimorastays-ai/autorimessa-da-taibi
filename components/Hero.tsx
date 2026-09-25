@@ -328,7 +328,7 @@ const heroStyles = `
 
     gap: 12px;
 
-    font-size: 8px;
+    font-size: 9px;
     font-weight: 500;
     line-height: 1;
 
@@ -482,7 +482,7 @@ const heroStyles = `
     }
 
     .hero__address {
-      font-size: 8px;
+      font-size: 10px;
     }
 
     .hero__scroll span {

@@ -239,13 +239,13 @@ const reviewsStyles = `
     margin:
       0 0 16px;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.18em;
 
     color:
-      rgba(255, 255, 255, 0.34);
+      rgba(255, 255, 255, 0.62);
   }
 
   .reviews-section__title {
@@ -313,7 +313,7 @@ const reviewsStyles = `
       1px solid
       rgba(255, 255, 255, 0.34);
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.14em;
@@ -483,13 +483,13 @@ const reviewsStyles = `
 
     padding-top: 18px;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.15em;
 
     color:
-      rgba(255, 255, 255, 0.34);
+      rgba(255, 255, 255, 0.62);
   }
 
   .reviews-section__bottom-center {
@@ -626,7 +626,7 @@ const reviewsStyles = `
     }
 
     .reviews-section__rating-stars {
-      font-size: 8px;
+      font-size: 10px;
     }
 
     .reviews-section__heading {

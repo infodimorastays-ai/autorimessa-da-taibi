@@ -414,7 +414,7 @@ const securityStyles = `
       var(--font-clash-display),
       sans-serif;
 
-    font-size: 7px;
+    font-size: 9px;
     font-weight: 600;
 
     line-height: 1;
@@ -422,7 +422,7 @@ const securityStyles = `
     letter-spacing: 0.18em;
 
     color:
-      rgba(255, 255, 255, 0.25);
+      rgba(255, 255, 255, 0.55);
   }
 
   .security-camera__body::after {
@@ -596,7 +596,7 @@ const securityStyles = `
       var(--font-clash-display),
       sans-serif;
 
-    font-size: 6px;
+    font-size: 8px;
     font-weight: 600;
 
     line-height: 1;
@@ -604,7 +604,7 @@ const securityStyles = `
     letter-spacing: 0.16em;
 
     color:
-      rgba(255, 255, 255, 0.34);
+      rgba(255, 255, 255, 0.66);
   }
 
   .security-camera__rec-dot {
@@ -672,7 +672,7 @@ const securityStyles = `
       var(--font-clash-display),
       sans-serif;
 
-    font-size: 7px;
+    font-size: 9px;
     font-weight: 600;
 
     line-height: 1;
@@ -680,7 +680,7 @@ const securityStyles = `
     letter-spacing: 0.17em;
 
     color:
-      rgba(255, 255, 255, 0.25);
+      rgba(255, 255, 255, 0.56);
   }
 
   .security-camera__caption::before {
@@ -950,13 +950,13 @@ const securityStyles = `
       var(--font-clash-display),
       sans-serif;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.17em;
 
     color:
-      rgba(255, 255, 255, 0.34);
+      rgba(255, 255, 255, 0.66);
   }
 
   .security-section__monitor-top span:last-child {
@@ -1139,13 +1139,13 @@ const securityStyles = `
       var(--font-clash-display),
       sans-serif;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.15em;
 
     color:
-      rgba(255, 255, 255, 0.28);
+      rgba(255, 255, 255, 0.62);
   }
 
   .security-section__bottom a {
@@ -1277,7 +1277,7 @@ const securityStyles = `
     }
 
     .security-section__status {
-      font-size: 7px;
+      font-size: 9px;
     }
 
     .security-camera {

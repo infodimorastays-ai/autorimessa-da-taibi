@@ -138,13 +138,13 @@ const ratesStyles = `
       var(--font-clash-display),
       sans-serif;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.16em;
 
     color:
-      rgba(0, 0, 0, 0.42);
+      rgba(0, 0, 0, 0.68);
   }
 
   .rates-section__top-dot {
@@ -293,13 +293,13 @@ const ratesStyles = `
       var(--font-clash-display),
       sans-serif;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.15em;
 
     color:
-      rgba(0, 0, 0, 0.3);
+      rgba(0, 0, 0, 0.6);
   }
 
   .rate-card__type {
@@ -307,13 +307,13 @@ const ratesStyles = `
       var(--font-clash-display),
       sans-serif;
 
-    font-size: 7px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.15em;
 
     color:
-      rgba(0, 0, 0, 0.3);
+      rgba(0, 0, 0, 0.6);
   }
 
   .rate-card__title {
@@ -436,13 +436,13 @@ const ratesStyles = `
       var(--font-clash-display),
       sans-serif;
 
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 0.15em;
 
     color:
-      rgba(0, 0, 0, 0.38);
+      rgba(0, 0, 0, 0.64);
   }
 
   .rates-section__bottom-center {
@@ -577,7 +577,7 @@ const ratesStyles = `
     }
 
     .rates-section__top-note {
-      font-size: 7px;
+      font-size: 9px;
     }
 
     .rates-section__heading {
