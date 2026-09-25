@@ -87,6 +87,24 @@ main {
   position: relative;
 }
 
+@media (max-width: 768px) and (max-height: 600px) {
+  body .hero,
+  body .intro-section,
+  body .services-section,
+  body .security-section,
+  body .rates-section,
+  body .carwash-section,
+  body .location-section,
+  body .reviews-section {
+    height: 100dvh;
+    min-height: 0;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
