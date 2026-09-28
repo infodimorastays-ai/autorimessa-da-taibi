@@ -19,14 +19,9 @@ const securityStyles = `
 
     background:
       radial-gradient(
-        circle at 82% 22%,
-        rgba(62, 181, 205, 0.075),
-        transparent 24%
-      ),
-      radial-gradient(
-        circle at 68% 48%,
-        rgba(110, 135, 145, 0.12),
-        transparent 31%
+        circle at 54% 46%,
+        rgba(255, 255, 255, 0.035),
+        transparent 34%
       ),
       #070909;
 
@@ -206,14 +201,14 @@ const securityStyles = `
     z-index: 1;
 
     width:
-      clamp(230px, 22vw, 380px);
+      clamp(270px, 26vw, 440px);
 
     height:
-      clamp(160px, 21vw, 290px);
+      clamp(188px, 25vw, 335px);
 
     pointer-events: none;
 
-    opacity: 0.92;
+    opacity: 0.98;
   }
 
   .security-camera__ambient {
@@ -264,8 +259,9 @@ const securityStyles = `
     background:
       linear-gradient(
         180deg,
-        rgba(125, 137, 140, 0.2),
-        rgba(22, 27, 28, 0.55)
+        rgba(171, 181, 182, 0.34) 0%,
+        rgba(78, 88, 90, 0.3) 28%,
+        rgba(18, 23, 24, 0.78) 100%
       );
 
     box-shadow:
@@ -381,18 +377,27 @@ const securityStyles = `
     background:
       linear-gradient(
         165deg,
-        rgba(92, 105, 108, 0.82) 0%,
-        rgba(44, 52, 54, 0.94) 31%,
-        rgba(18, 23, 24, 0.98) 75%
+        rgba(194, 202, 202, 0.88) 0%,
+        rgba(104, 115, 117, 0.94) 12%,
+        rgba(49, 58, 60, 0.98) 36%,
+        rgba(17, 22, 23, 1) 78%
+      ),
+      repeating-linear-gradient(
+        92deg,
+        rgba(255, 255, 255, 0.026) 0,
+        transparent 1px,
+        transparent 5px
       );
 
     box-shadow:
       inset 0 1px 0
-      rgba(255, 255, 255, 0.13),
+      rgba(255, 255, 255, 0.34),
+      inset 0 0 0 1px
+      rgba(0, 0, 0, 0.28),
       inset 0 -12px 24px
-      rgba(0, 0, 0, 0.24),
-      0 24px 45px
-      rgba(0, 0, 0, 0.3);
+      rgba(0, 0, 0, 0.42),
+      0 26px 48px
+      rgba(0, 0, 0, 0.48);
 
     transform:
       rotate(-7deg)
@@ -460,9 +465,10 @@ const securityStyles = `
     background:
       linear-gradient(
         180deg,
-        #667174,
-        #30393b 60%,
-        #171c1d
+        #9ba5a6 0%,
+        #596466 22%,
+        #30393b 62%,
+        #121718 100%
       );
 
     box-shadow:
@@ -491,8 +497,9 @@ const securityStyles = `
     background:
       linear-gradient(
         145deg,
-        #303a3c,
-        #0c1011 70%
+        #5f6a6c 0%,
+        #252d2f 28%,
+        #090d0e 72%
       );
 
     box-shadow:
@@ -628,19 +635,21 @@ const securityStyles = `
   .security-camera__beam {
     position: absolute;
 
-    top: 43%;
-    left: -26%;
+    top: 38%;
+    left: -166%;
 
-    width: 42%;
-    height: 38%;
+    width: 192%;
+    height: 82%;
 
-    opacity: 0.23;
+    opacity: 0.68;
 
     background:
       linear-gradient(
         90deg,
-        rgba(64, 202, 224, 0.12),
-        transparent
+        rgba(28, 150, 255, 0.015) 0%,
+        rgba(25, 185, 255, 0.07) 34%,
+        rgba(32, 219, 255, 0.2) 72%,
+        rgba(108, 242, 255, 0.5) 100%
       );
 
     clip-path:
@@ -651,10 +660,42 @@ const securityStyles = `
         100% 65%
       );
 
-    filter: blur(8px);
+    filter: blur(16px);
 
     transform:
       rotate(-7deg);
+
+    transform-origin: 100% 50%;
+
+    animation:
+      securityBeam 4.8s
+      ease-in-out infinite;
+  }
+
+  .security-camera__beam::after {
+    content: '';
+
+    position: absolute;
+
+    top: 49%;
+    right: 0;
+
+    width: 82%;
+    height: 1px;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(43, 201, 255, 0.22) 50%,
+        rgba(163, 250, 255, 0.92)
+      );
+
+    box-shadow:
+      0 0 8px
+      rgba(45, 217, 255, 0.64),
+      0 0 18px
+      rgba(45, 217, 255, 0.34);
   }
 
   .security-camera__caption {
@@ -730,6 +771,17 @@ const securityStyles = `
       transform:
         rotate(-7deg)
         scale(1.04);
+    }
+  }
+
+  @keyframes securityBeam {
+    0%,
+    100% {
+      opacity: 0.52;
+    }
+
+    50% {
+      opacity: 0.76;
     }
   }
 
@@ -1201,7 +1253,7 @@ const securityStyles = `
       right: 35px;
 
       width:
-        clamp(220px, 25vw, 310px);
+        clamp(250px, 29vw, 350px);
     }
   }
 
@@ -1229,8 +1281,8 @@ const securityStyles = `
     .security-camera {
       top: 70px;
 
-      width: 245px;
-      height: 170px;
+      width: 270px;
+      height: 188px;
     }
   }
 
@@ -1284,10 +1336,10 @@ const securityStyles = `
       top: 82px;
       right: -15px;
 
-      width: 205px;
-      height: 145px;
+      width: 230px;
+      height: 163px;
 
-      opacity: 0.62;
+      opacity: 0.82;
     }
 
     .security-camera__caption {
@@ -1295,7 +1347,7 @@ const securityStyles = `
     }
 
     .security-camera__beam {
-      opacity: 0.13;
+      opacity: 0.56;
     }
 
     .security-section__main {
@@ -1359,10 +1411,10 @@ const securityStyles = `
       top: 72px;
       right: -35px;
 
-      width: 175px;
-      height: 125px;
+      width: 205px;
+      height: 145px;
 
-      opacity: 0.48;
+      opacity: 0.72;
     }
 
     .security-camera__ambient {
@@ -1400,8 +1452,8 @@ const securityStyles = `
       right: -25px;
 
       width:
-        clamp(150px, 27vw, 180px);
-      height: 125px;
+        clamp(170px, 31vw, 205px);
+      height: 140px;
     }
 
     .security-section__main {
@@ -1447,6 +1499,7 @@ const securityStyles = `
 
     .security-camera__ambient,
     .security-camera__lens,
+    .security-camera__beam,
     .security-camera__rec-dot {
       animation: none;
     }
