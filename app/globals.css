@@ -87,6 +87,98 @@ main {
   position: relative;
 }
 
+/* Soft, section-specific light spilling from the upper-right corner. */
+body .intro-section {
+  --panel-accent-rgb: 30, 145, 255;
+}
+
+body .services-section {
+  --panel-accent-rgb: 255, 68, 112;
+}
+
+body .rates-section {
+  --panel-accent-rgb: 255, 157, 35;
+}
+
+body .carwash-section {
+  --panel-accent-rgb: 0, 220, 196;
+}
+
+body .location-section {
+  --panel-accent-rgb: 132, 82, 255;
+}
+
+body .reviews-section {
+  --panel-accent-rgb: 255, 45, 142;
+}
+
+body .contact-section {
+  --panel-accent-rgb: 35, 132, 255;
+}
+
+body .intro-section::after,
+body .services-section::after,
+body .rates-section::after,
+body .carwash-section::after,
+body .location-section::after,
+body .reviews-section::after,
+body .contact-section::after {
+  content: '';
+
+  position: absolute;
+  z-index: 1;
+  top: -30%;
+  right: -19%;
+
+  width: min(72vw, 1080px);
+  height: min(82vh, 760px);
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 76% 8%,
+      rgba(var(--panel-accent-rgb), 0.3) 0%,
+      rgba(var(--panel-accent-rgb), 0.15) 28%,
+      rgba(var(--panel-accent-rgb), 0.055) 49%,
+      transparent 73%
+    );
+
+  filter: blur(18px);
+  transform: rotate(-7deg);
+  transform-origin: 100% 0;
+}
+
+body .intro-section__inner,
+body .services-section__inner,
+body .rates-section__inner,
+body .carwash-section__inner,
+body .location-section__inner,
+body .reviews-section__inner,
+body .contact-section__inner {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  body .intro-section::after,
+  body .services-section::after,
+  body .rates-section::after,
+  body .carwash-section::after,
+  body .location-section::after,
+  body .reviews-section::after,
+  body .contact-section::after {
+    top: -20%;
+    right: -48%;
+
+    width: 125vw;
+    height: 70vh;
+
+    opacity: 0.82;
+    filter: blur(14px);
+  }
+}
+
 @media (max-width: 768px) and (max-height: 600px) {
   body .hero,
   body .intro-section,
