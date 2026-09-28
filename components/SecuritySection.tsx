@@ -616,8 +616,8 @@ const securityStyles = `
   .security-camera__beam {
     position: absolute;
 
-    top: 29%;
-    left: -205%;
+    top: -20%;
+    right: 94%;
 
     width: 232%;
     height: 116%;
