@@ -144,7 +144,6 @@ const reviewsStyles = `
   .reviews-section__top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
   }
 
   .reviews-section__section-id {
@@ -165,52 +164,6 @@ const reviewsStyles = `
   }
 
   .reviews-section__section-id span:last-child {
-    color:
-      rgba(255, 255, 255, 0.72);
-  }
-
-  .reviews-section__rating {
-    display: flex;
-    align-items: center;
-
-    gap: 14px;
-  }
-
-  .reviews-section__rating-score {
-    font-family:
-      'Archivo Black',
-      sans-serif;
-
-    font-size: 28px;
-    font-weight: 400;
-
-    line-height: 1;
-
-    letter-spacing: -0.05em;
-  }
-
-  .reviews-section__rating-info {
-    display: flex;
-    flex-direction: column;
-
-    gap: 3px;
-  }
-
-  .reviews-section__rating-stars {
-    font-size: 10px;
-
-    letter-spacing: 0.12em;
-
-    color:
-      rgba(255, 255, 255, 0.9);
-  }
-
-  .reviews-section__rating-count {
-    font-size: 10px;
-    font-weight: 600;
-
-    letter-spacing: 0.15em;
-
     color:
       rgba(255, 255, 255, 0.72);
   }
@@ -475,7 +428,7 @@ const reviewsStyles = `
     display: grid;
 
     grid-template-columns:
-      1fr 1fr 1fr;
+      1fr auto;
 
     align-items: end;
 
@@ -493,7 +446,7 @@ const reviewsStyles = `
   }
 
   .reviews-section__bottom-center {
-    justify-self: center;
+    justify-self: start;
   }
 
   .reviews-section__bottom a {
@@ -621,14 +574,6 @@ const reviewsStyles = `
         22px;
     }
 
-    .reviews-section__rating-score {
-      font-size: 22px;
-    }
-
-    .reviews-section__rating-stars {
-      font-size: 10px;
-    }
-
     .reviews-section__heading {
       display: block;
 
@@ -719,6 +664,10 @@ const reviewsStyles = `
     .reviews-section__bottom-center {
       display: none;
     }
+
+    .reviews-section__bottom a {
+      grid-column: 2;
+    }
   }
 
   @media (max-width: 480px) {
@@ -732,10 +681,6 @@ const reviewsStyles = `
         42px
         var(--layout-inline)
         18px;
-    }
-
-    .reviews-section__rating-info {
-      display: none;
     }
 
     .reviews-section__heading {
@@ -939,27 +884,6 @@ export default function ReviewsSection() {
               <span>RECENSIONI</span>
             </div>
 
-            <div
-              className="reviews-section__rating"
-              aria-label="Valutazione Google: 4 su 5, basata su 4 recensioni"
-            >
-              <strong className="reviews-section__rating-score">
-                4.0
-              </strong>
-
-              <div className="reviews-section__rating-info">
-                <span
-                  className="reviews-section__rating-stars"
-                  aria-hidden="true"
-                >
-                  ★★★★☆
-                </span>
-
-                <span className="reviews-section__rating-count">
-                  4 RECENSIONI · GOOGLE
-                </span>
-              </div>
-            </div>
           </div>
 
           <div className="reviews-section__heading">
@@ -1044,8 +968,6 @@ export default function ReviewsSection() {
           </div>
 
           <div className="reviews-section__bottom">
-            <span>4.0 / 5 · GOOGLE</span>
-
             <span className="reviews-section__bottom-center">
               VIA BREGLIO 111 · TORINO
             </span>
