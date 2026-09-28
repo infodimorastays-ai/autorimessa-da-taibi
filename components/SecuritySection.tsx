@@ -243,35 +243,53 @@ const securityStyles = `
   .security-camera__mount {
     position: absolute;
 
-    top: 8%;
-    right: 1%;
+    top: 12%;
+    right: 2%;
 
-    width: 38%;
-    height: 10%;
+    width: 9%;
+    height: 32%;
 
     border:
       1px solid
       rgba(255, 255, 255, 0.13);
 
     border-radius:
-      3px 12px 12px 3px;
+      5px 2px 2px 5px;
 
     background:
       linear-gradient(
-        180deg,
-        rgba(171, 181, 182, 0.34) 0%,
-        rgba(78, 88, 90, 0.3) 28%,
-        rgba(18, 23, 24, 0.78) 100%
+        90deg,
+        #1a2021 0%,
+        #616c6e 42%,
+        #202627 100%
       );
 
     box-shadow:
-      inset 0 1px 0
-      rgba(255, 255, 255, 0.07),
-      0 10px 25px
-      rgba(0, 0, 0, 0.25);
+      inset 1px 0 0
+      rgba(255, 255, 255, 0.16),
+      -7px 12px 24px
+      rgba(0, 0, 0, 0.34);
+  }
 
-    transform:
-      rotate(-7deg);
+  .security-camera__mount::before {
+    content: '';
+
+    position: absolute;
+    inset: 14% 22%;
+
+    background:
+      radial-gradient(
+        circle,
+        #9aa3a4 0 2px,
+        #161b1c 2.5px 4px,
+        transparent 4.5px
+      ) center top / 9px 9px no-repeat,
+      radial-gradient(
+        circle,
+        #9aa3a4 0 2px,
+        #161b1c 2.5px 4px,
+        transparent 4.5px
+      ) center bottom / 9px 9px no-repeat;
   }
 
   .security-camera__mount::after {
@@ -279,52 +297,60 @@ const securityStyles = `
 
     position: absolute;
 
-    top: 50%;
-    right: -10px;
+    top: 48%;
+    right: 66%;
 
-    width: 11px;
-    height: 28px;
+    width: 230%;
+    height: 24%;
 
-    border-radius: 2px;
+    border-radius: 999px;
 
     background:
       linear-gradient(
-        90deg,
-        #111617,
-        #333d3f
+        180deg,
+        #768184 0%,
+        #303839 44%,
+        #111617 100%
       );
 
     transform:
-      translateY(-50%);
+      translateY(-50%)
+      rotate(-7deg);
+
+    box-shadow:
+      inset 0 1px 0
+      rgba(255, 255, 255, 0.22),
+      0 8px 18px
+      rgba(0, 0, 0, 0.38);
   }
 
   .security-camera__arm {
     position: absolute;
 
-    top: 19%;
-    right: 23%;
+    top: 28%;
+    right: 19%;
 
-    width: 11%;
-    height: 30%;
+    width: 28%;
+    height: 8%;
 
-    border-radius: 6px;
+    border-radius: 999px;
 
     background:
       linear-gradient(
-        90deg,
-        #111617 0%,
-        #3d4749 48%,
-        #151a1b 100%
+        180deg,
+        #7c8789 0%,
+        #374042 44%,
+        #111617 100%
       );
 
     box-shadow:
-      inset 1px 0 0
-      rgba(255, 255, 255, 0.09),
-      6px 8px 18px
-      rgba(0, 0, 0, 0.32);
+      inset 0 1px 0
+      rgba(255, 255, 255, 0.22),
+      5px 8px 17px
+      rgba(0, 0, 0, 0.38);
 
     transform:
-      rotate(30deg);
+      rotate(-7deg);
 
     transform-origin:
       50% 0%;
@@ -333,10 +359,10 @@ const securityStyles = `
   .security-camera__joint {
     position: absolute;
 
-    top: 36%;
-    right: 27%;
+    top: 26%;
+    right: 41%;
 
-    width: 13%;
+    width: 12%;
     aspect-ratio: 1;
 
     border:
@@ -361,18 +387,18 @@ const securityStyles = `
   .security-camera__body {
     position: absolute;
 
-    top: 37%;
-    right: 27%;
+    top: 35%;
+    right: 30%;
 
-    width: 56%;
-    height: 29%;
+    width: 62%;
+    height: 31%;
 
     border:
       1px solid
       rgba(255, 255, 255, 0.14);
 
     border-radius:
-      10px 8px 13px 13px;
+      8px 15px 18px 12px;
 
     background:
       linear-gradient(
@@ -400,26 +426,25 @@ const securityStyles = `
       rgba(0, 0, 0, 0.48);
 
     transform:
-      rotate(-7deg)
-      skewX(-3deg);
+      rotate(-6deg);
 
     transform-origin:
       80% 50%;
   }
 
   .security-camera__body::before {
-    content: 'CAM 01';
+    content: 'SECURITY';
 
     position: absolute;
 
-    top: 14px;
-    right: 18px;
+    top: 15px;
+    right: 16px;
 
     font-family:
       var(--font-clash-display),
       sans-serif;
 
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 600;
 
     line-height: 1;
@@ -427,7 +452,7 @@ const securityStyles = `
     letter-spacing: 0.18em;
 
     color:
-      rgba(255, 255, 255, 0.55);
+      rgba(214, 235, 234, 0.7);
   }
 
   .security-camera__body::after {
@@ -435,9 +460,9 @@ const securityStyles = `
 
     position: absolute;
 
-    left: 19%;
-    right: 14%;
-    bottom: 9px;
+    left: 23%;
+    right: 12%;
+    bottom: 11px;
 
     height: 1px;
 
@@ -453,11 +478,11 @@ const securityStyles = `
   .security-camera__hood {
     position: absolute;
 
-    top: -9%;
-    left: -4%;
+    top: -11%;
+    left: -6%;
 
-    width: 78%;
-    height: 19%;
+    width: 88%;
+    height: 21%;
 
     border-radius:
       7px 3px 2px 5px;
@@ -588,79 +613,52 @@ const securityStyles = `
       rgba(70, 199, 220, 0.07);
   }
 
-  .security-camera__rec {
-    position: absolute;
-
-    right: 12px;
-    bottom: 12px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 6px;
-
-    font-family:
-      var(--font-clash-display),
-      sans-serif;
-
-    font-size: 8px;
-    font-weight: 600;
-
-    line-height: 1;
-
-    letter-spacing: 0.16em;
-
-    color:
-      rgba(255, 255, 255, 0.66);
-  }
-
-  .security-camera__rec-dot {
-    width: 4px;
-    height: 4px;
-
-    border-radius: 50%;
-
-    background:
-      #d8665f;
-
-    box-shadow:
-      0 0 7px
-      rgba(216, 102, 95, 0.42);
-
-    animation:
-      securityRec 2.2s
-      ease-in-out infinite;
-  }
-
   .security-camera__beam {
     position: absolute;
 
-    top: 38%;
-    left: -166%;
+    top: 29%;
+    left: -205%;
 
-    width: 192%;
-    height: 82%;
+    width: 232%;
+    height: 116%;
 
-    opacity: 0.68;
+    opacity: 0.46;
 
     background:
       linear-gradient(
         90deg,
-        rgba(28, 150, 255, 0.015) 0%,
-        rgba(25, 185, 255, 0.07) 34%,
-        rgba(32, 219, 255, 0.2) 72%,
-        rgba(108, 242, 255, 0.5) 100%
+        rgba(28, 150, 255, 0) 0%,
+        rgba(25, 185, 255, 0.035) 28%,
+        rgba(32, 219, 255, 0.12) 70%,
+        rgba(108, 242, 255, 0.34) 100%
       );
 
     clip-path:
       polygon(
-        100% 35%,
+        100% 42%,
         0 0,
         0 100%,
-        100% 65%
+        100% 58%
       );
 
-    filter: blur(16px);
+    filter: blur(28px);
+
+    -webkit-mask-image:
+      radial-gradient(
+        ellipse at 100% 50%,
+        #000 0%,
+        rgba(0, 0, 0, 0.9) 24%,
+        rgba(0, 0, 0, 0.46) 56%,
+        transparent 86%
+      );
+    mask-image:
+      radial-gradient(
+        ellipse at 100% 50%,
+        #000 0%,
+        rgba(0, 0, 0, 0.9) 24%,
+        rgba(0, 0, 0, 0.46) 56%,
+        transparent 86%
+      );
 
     transform:
       rotate(-7deg);
@@ -777,22 +775,11 @@ const securityStyles = `
   @keyframes securityBeam {
     0%,
     100% {
-      opacity: 0.52;
+      opacity: 0.36;
     }
 
     50% {
-      opacity: 0.76;
-    }
-  }
-
-  @keyframes securityRec {
-    0%,
-    100% {
-      opacity: 0.5;
-    }
-
-    50% {
-      opacity: 1;
+      opacity: 0.54;
     }
   }
 
@@ -1499,8 +1486,7 @@ const securityStyles = `
 
     .security-camera__ambient,
     .security-camera__lens,
-    .security-camera__beam,
-    .security-camera__rec-dot {
+    .security-camera__beam {
       animation: none;
     }
   }
@@ -1645,17 +1631,12 @@ export default function SecuritySection() {
             <div className="security-camera__face">
               <div className="security-camera__lens" />
             </div>
-
-            <div className="security-camera__rec">
-              <span className="security-camera__rec-dot" />
-              <span>REC</span>
-            </div>
           </div>
 
           <div className="security-camera__beam" />
 
           <div className="security-camera__caption">
-            CCTV / ACTIVE
+            SECURITY / ACTIVE
           </div>
         </div>
 
@@ -1715,11 +1696,11 @@ export default function SecuritySection() {
             <div className="security-section__monitor-corner security-section__monitor-corner--br" />
 
             <div className="security-section__monitor-top">
-              <span>CAM 01</span>
+              <span>SECURITY</span>
 
               <span>
                 <span className="security-section__rec-dot" />
-                REC
+                ACTIVE
               </span>
             </div>
 
