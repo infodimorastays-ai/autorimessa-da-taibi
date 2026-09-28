@@ -190,7 +190,7 @@ const heroStyles = `
 
     width:
       min(
-        900px,
+        960px,
         100%
       );
 
