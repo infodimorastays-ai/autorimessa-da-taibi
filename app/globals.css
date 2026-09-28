@@ -96,6 +96,10 @@ body .services-section {
   --panel-accent-rgb: 255, 68, 112;
 }
 
+body .security-section {
+  --panel-accent-rgb: 255, 35, 55;
+}
+
 body .rates-section {
   --panel-accent-rgb: 255, 157, 35;
 }
@@ -118,6 +122,7 @@ body .contact-section {
 
 body .intro-section::after,
 body .services-section::after,
+body .security-section::after,
 body .rates-section::after,
 body .carwash-section::after,
 body .location-section::after,
@@ -151,6 +156,7 @@ body .contact-section::after {
 
 body .intro-section__inner,
 body .services-section__inner,
+body .security-section__inner,
 body .rates-section__inner,
 body .carwash-section__inner,
 body .location-section__inner,
@@ -163,6 +169,7 @@ body .contact-section__inner {
 @media (max-width: 768px) {
   body .intro-section::after,
   body .services-section::after,
+  body .security-section::after,
   body .rates-section::after,
   body .carwash-section::after,
   body .location-section::after,

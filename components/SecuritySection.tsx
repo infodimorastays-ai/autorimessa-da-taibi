@@ -186,601 +186,54 @@ const securityStyles = `
   }
 
   /* =========================================================
-     CCTV / DECORATIVE SECURITY CAMERA
+     PHOTOREALISTIC SECURITY CAMERA
      ========================================================= */
 
   .security-camera {
     position: absolute;
-
-    top:
-      clamp(88px, 11vh, 126px);
-
-    right:
-      clamp(52px, 7vw, 130px);
-
+    top: clamp(82px, 9vh, 112px);
+    right: clamp(20px, 4vw, 72px);
     z-index: 1;
-
-    width:
-      clamp(270px, 26vw, 440px);
-
-    height:
-      clamp(188px, 25vw, 335px);
-
+    width: clamp(430px, 48vw, 760px);
+    aspect-ratio: 3 / 2;
     pointer-events: none;
-
-    opacity: 0.98;
   }
 
-  .security-camera__ambient {
-    position: absolute;
-
-    top: 5%;
-    left: 15%;
-
-    width: 90%;
-    height: 82%;
-
-    border-radius: 50%;
-
-    background:
-      radial-gradient(
-        ellipse at center,
-        rgba(57, 197, 222, 0.105) 0%,
-        rgba(57, 197, 222, 0.04) 34%,
-        transparent 72%
-      );
-
-    filter: blur(22px);
-
-    transform:
-      rotate(-7deg);
-
-    animation:
-      securityCameraAmbient 5s
-      ease-in-out infinite;
-  }
-
-  .security-camera__mount {
-    position: absolute;
-
-    top: 12%;
-    right: 2%;
-
-    width: 9%;
-    height: 32%;
-
-    border:
-      1px solid
-      rgba(255, 255, 255, 0.13);
-
-    border-radius:
-      5px 2px 2px 5px;
-
-    background:
-      linear-gradient(
-        90deg,
-        #1a2021 0%,
-        #616c6e 42%,
-        #202627 100%
-      );
-
-    box-shadow:
-      inset 1px 0 0
-      rgba(255, 255, 255, 0.16),
-      -7px 12px 24px
-      rgba(0, 0, 0, 0.34);
-  }
-
-  .security-camera__mount::before {
+  .security-camera::before {
     content: '';
-
     position: absolute;
-    inset: 14% 22%;
-
-    background:
-      radial-gradient(
-        circle,
-        #9aa3a4 0 2px,
-        #161b1c 2.5px 4px,
-        transparent 4.5px
-      ) center top / 9px 9px no-repeat,
-      radial-gradient(
-        circle,
-        #9aa3a4 0 2px,
-        #161b1c 2.5px 4px,
-        transparent 4.5px
-      ) center bottom / 9px 9px no-repeat;
-  }
-
-  .security-camera__mount::after {
-    content: '';
-
-    position: absolute;
-
-    top: 48%;
-    right: 66%;
-
-    width: 230%;
-    height: 24%;
-
-    border-radius: 999px;
-
-    background:
-      linear-gradient(
-        180deg,
-        #768184 0%,
-        #303839 44%,
-        #111617 100%
-      );
-
-    transform:
-      translateY(-50%)
-      rotate(-7deg);
-
-    box-shadow:
-      inset 0 1px 0
-      rgba(255, 255, 255, 0.22),
-      0 8px 18px
-      rgba(0, 0, 0, 0.38);
-  }
-
-  .security-camera__arm {
-    position: absolute;
-
-    top: 28%;
-    right: 19%;
-
-    width: 28%;
-    height: 8%;
-
-    border-radius: 999px;
-
-    background:
-      linear-gradient(
-        180deg,
-        #7c8789 0%,
-        #374042 44%,
-        #111617 100%
-      );
-
-    box-shadow:
-      inset 0 1px 0
-      rgba(255, 255, 255, 0.22),
-      5px 8px 17px
-      rgba(0, 0, 0, 0.38);
-
-    transform:
-      rotate(-7deg);
-
-    transform-origin:
-      50% 0%;
-  }
-
-  .security-camera__joint {
-    position: absolute;
-
-    top: 26%;
-    right: 41%;
-
-    width: 12%;
-    aspect-ratio: 1;
-
-    border:
-      1px solid
-      rgba(255, 255, 255, 0.14);
-
+    inset: 21% 3% 10% 20%;
     border-radius: 50%;
-
-    background:
-      radial-gradient(
-        circle at 38% 32%,
-        #596466 0%,
-        #272f30 32%,
-        #101415 72%
-      );
-
-    box-shadow:
-      0 8px 22px
-      rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.76);
+    filter: blur(34px);
+    transform: translate(3%, 7%);
   }
 
-  .security-camera__body {
-    position: absolute;
-
-    top: 35%;
-    right: 30%;
-
-    width: 62%;
-    height: 31%;
-
-    border:
-      1px solid
-      rgba(255, 255, 255, 0.14);
-
-    border-radius:
-      8px 15px 18px 12px;
-
-    background:
-      linear-gradient(
-        165deg,
-        rgba(194, 202, 202, 0.88) 0%,
-        rgba(104, 115, 117, 0.94) 12%,
-        rgba(49, 58, 60, 0.98) 36%,
-        rgba(17, 22, 23, 1) 78%
-      ),
-      repeating-linear-gradient(
-        92deg,
-        rgba(255, 255, 255, 0.026) 0,
-        transparent 1px,
-        transparent 5px
-      );
-
-    box-shadow:
-      inset 0 1px 0
-      rgba(255, 255, 255, 0.34),
-      inset 0 0 0 1px
-      rgba(0, 0, 0, 0.28),
-      inset 0 -12px 24px
-      rgba(0, 0, 0, 0.42),
-      0 26px 48px
-      rgba(0, 0, 0, 0.48);
-
-    transform:
-      rotate(-6deg);
-
-    transform-origin:
-      80% 50%;
-  }
-
-  .security-camera__body::before {
-    content: 'SECURITY';
-
-    position: absolute;
-
-    top: 15px;
-    right: 16px;
-
-    font-family:
-      var(--font-clash-display),
-      sans-serif;
-
-    font-size: 8px;
-    font-weight: 600;
-
-    line-height: 1;
-
-    letter-spacing: 0.18em;
-
-    color:
-      rgba(214, 235, 234, 0.7);
-  }
-
-  .security-camera__body::after {
-    content: '';
-
-    position: absolute;
-
-    left: 23%;
-    right: 12%;
-    bottom: 11px;
-
-    height: 1px;
-
-    background:
-      linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.13),
-        transparent
-      );
-  }
-
-  .security-camera__hood {
-    position: absolute;
-
-    top: -11%;
-    left: -6%;
-
-    width: 88%;
-    height: 21%;
-
-    border-radius:
-      7px 3px 2px 5px;
-
-    background:
-      linear-gradient(
-        180deg,
-        #9ba5a6 0%,
-        #596466 22%,
-        #30393b 62%,
-        #121718 100%
-      );
-
-    box-shadow:
-      inset 0 1px 0
-      rgba(255, 255, 255, 0.13),
-      0 4px 9px
-      rgba(0, 0, 0, 0.3);
-  }
-
-  .security-camera__face {
-    position: absolute;
-
-    top: 7%;
-    left: -10%;
-
-    width: 31%;
-    height: 86%;
-
-    border:
-      1px solid
-      rgba(255, 255, 255, 0.14);
-
-    border-radius:
-      45% 34% 34% 45%;
-
-    background:
-      linear-gradient(
-        145deg,
-        #5f6a6c 0%,
-        #252d2f 28%,
-        #090d0e 72%
-      );
-
-    box-shadow:
-      inset -7px 0 14px
-      rgba(0, 0, 0, 0.46),
-      -7px 6px 20px
-      rgba(0, 0, 0, 0.25);
-  }
-
-  .security-camera__lens {
-    position: absolute;
-
-    top: 50%;
-    left: 46%;
-
-    width: 64%;
-    aspect-ratio: 1;
-
-    transform:
-      translate(-50%, -50%);
-
-    border:
-      1px solid
-      rgba(117, 205, 220, 0.22);
-
-    border-radius: 50%;
-
-    background:
-      radial-gradient(
-        circle at 39% 34%,
-        rgba(219, 251, 255, 0.72) 0%,
-        rgba(98, 208, 226, 0.38) 5%,
-        rgba(21, 88, 101, 0.42) 15%,
-        #071012 34%,
-        #020505 62%,
-        #11191a 72%,
-        #020303 100%
-      );
-
-    box-shadow:
-      inset 0 0 0 4px
-      rgba(0, 0, 0, 0.62),
-      inset 0 0 18px
-      rgba(67, 197, 220, 0.14),
-      0 0 14px
-      rgba(66, 202, 225, 0.08);
-
-    animation:
-      securityLens 4.8s
-      ease-in-out infinite;
-  }
-
-  .security-camera__lens::before {
-    content: '';
-
-    position: absolute;
-
-    top: 17%;
-    left: 20%;
-
-    width: 24%;
-    height: 13%;
-
-    border-radius: 50%;
-
-    background:
-      rgba(204, 249, 255, 0.35);
-
-    filter: blur(1px);
-
-    transform:
-      rotate(-28deg);
-  }
-
-  .security-camera__lens::after {
-    content: '';
-
-    position: absolute;
-
-    inset: -16%;
-
-    border-radius: 50%;
-
-    border:
-      1px solid
-      rgba(70, 199, 220, 0.07);
-  }
-
-  .security-camera__beam {
-    position: absolute;
-
-    top: -20%;
-    right: 94%;
-
-    width: 232%;
-    height: 116%;
-
-    opacity: 0.46;
-
-    background:
-      linear-gradient(
-        90deg,
-        rgba(28, 150, 255, 0) 0%,
-        rgba(25, 185, 255, 0.035) 28%,
-        rgba(32, 219, 255, 0.12) 70%,
-        rgba(108, 242, 255, 0.34) 100%
-      );
-
-    clip-path:
-      polygon(
-        100% 42%,
-        0 0,
-        0 100%,
-        100% 58%
-      );
-
-    filter: blur(28px);
-
+  .security-camera__image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: screen;
+    filter:
+      drop-shadow(0 30px 34px rgba(0, 0, 0, 0.72))
+      drop-shadow(0 10px 12px rgba(0, 0, 0, 0.62))
+      saturate(0.94)
+      contrast(1.04);
     -webkit-mask-image:
       radial-gradient(
-        ellipse at 100% 50%,
-        #000 0%,
-        rgba(0, 0, 0, 0.9) 24%,
-        rgba(0, 0, 0, 0.46) 56%,
-        transparent 86%
+        ellipse at 56% 50%,
+        #000 53%,
+        rgba(0, 0, 0, 0.96) 68%,
+        transparent 98%
       );
     mask-image:
       radial-gradient(
-        ellipse at 100% 50%,
-        #000 0%,
-        rgba(0, 0, 0, 0.9) 24%,
-        rgba(0, 0, 0, 0.46) 56%,
-        transparent 86%
+        ellipse at 56% 50%,
+        #000 53%,
+        rgba(0, 0, 0, 0.96) 68%,
+        transparent 98%
       );
-
-    transform:
-      rotate(-7deg);
-
-    transform-origin: 100% 50%;
-
-    animation:
-      securityBeam 4.8s
-      ease-in-out infinite;
-  }
-
-  .security-camera__beam::after {
-    content: '';
-
-    position: absolute;
-
-    top: 49%;
-    right: 0;
-
-    width: 82%;
-    height: 1px;
-
-    background:
-      linear-gradient(
-        90deg,
-        transparent,
-        rgba(43, 201, 255, 0.22) 50%,
-        rgba(163, 250, 255, 0.92)
-      );
-
-    box-shadow:
-      0 0 8px
-      rgba(45, 217, 255, 0.64),
-      0 0 18px
-      rgba(45, 217, 255, 0.34);
-  }
-
-  .security-camera__caption {
-    position: absolute;
-
-    right: 3%;
-    bottom: 7%;
-
-    display: flex;
-    align-items: center;
-
-    gap: 9px;
-
-    font-family:
-      var(--font-clash-display),
-      sans-serif;
-
-    font-size: 9px;
-    font-weight: 600;
-
-    line-height: 1;
-
-    letter-spacing: 0.17em;
-
-    color:
-      rgba(255, 255, 255, 0.56);
-  }
-
-  .security-camera__caption::before {
-    content: '';
-
-    width: 27px;
-    height: 1px;
-
-    background:
-      rgba(80, 199, 219, 0.3);
-  }
-
-  @keyframes securityLens {
-    0%,
-    100% {
-      box-shadow:
-        inset 0 0 0 4px
-        rgba(0, 0, 0, 0.62),
-        inset 0 0 18px
-        rgba(67, 197, 220, 0.12),
-        0 0 12px
-        rgba(66, 202, 225, 0.06);
-    }
-
-    50% {
-      box-shadow:
-        inset 0 0 0 4px
-        rgba(0, 0, 0, 0.62),
-        inset 0 0 22px
-        rgba(67, 197, 220, 0.2),
-        0 0 21px
-        rgba(66, 202, 225, 0.12);
-    }
-  }
-
-  @keyframes securityCameraAmbient {
-    0%,
-    100% {
-      opacity: 0.55;
-      transform:
-        rotate(-7deg)
-        scale(0.98);
-    }
-
-    50% {
-      opacity: 0.82;
-      transform:
-        rotate(-7deg)
-        scale(1.04);
-    }
-  }
-
-  @keyframes securityBeam {
-    0%,
-    100% {
-      opacity: 0.36;
-    }
-
-    50% {
-      opacity: 0.54;
-    }
   }
 
   .security-section__main {
@@ -1237,10 +690,8 @@ const securityStyles = `
     }
 
     .security-camera {
-      right: 35px;
-
-      width:
-        clamp(250px, 29vw, 350px);
+      right: 10px;
+      width: clamp(390px, 48vw, 560px);
     }
   }
 
@@ -1266,10 +717,8 @@ const securityStyles = `
     }
 
     .security-camera {
-      top: 70px;
-
-      width: 270px;
-      height: 188px;
+      top: 58px;
+      width: 430px;
     }
   }
 
@@ -1320,21 +769,10 @@ const securityStyles = `
     }
 
     .security-camera {
-      top: 82px;
-      right: -15px;
-
-      width: 230px;
-      height: 163px;
-
-      opacity: 0.82;
-    }
-
-    .security-camera__caption {
-      display: none;
-    }
-
-    .security-camera__beam {
-      opacity: 0.56;
+      top: 74px;
+      right: -70px;
+      width: clamp(360px, 86vw, 470px);
+      opacity: 0.88;
     }
 
     .security-section__main {
@@ -1395,17 +833,10 @@ const securityStyles = `
     }
 
     .security-camera {
-      top: 72px;
-      right: -35px;
-
-      width: 205px;
-      height: 145px;
-
-      opacity: 0.72;
-    }
-
-    .security-camera__ambient {
-      opacity: 0.45;
+      top: 68px;
+      right: -90px;
+      width: 360px;
+      opacity: 0.82;
     }
 
     .security-section__main {
@@ -1435,12 +866,9 @@ const securityStyles = `
     }
 
     .security-camera {
-      top: 60px;
-      right: -25px;
-
-      width:
-        clamp(170px, 31vw, 205px);
-      height: 140px;
+      top: 48px;
+      right: -74px;
+      width: clamp(320px, 74vw, 390px);
     }
 
     .security-section__main {
@@ -1484,13 +912,11 @@ const securityStyles = `
       transition: none;
     }
 
-    .security-camera__ambient,
-    .security-camera__lens,
-    .security-camera__beam {
-      animation: none;
-    }
   }
 `;
+
+const securityCameraUrl =
+  'https://pub-fd03e0c0deb14bfda1dea88f5eb37f8b.r2.dev/media/security-camera.webp';
 
 export default function SecuritySection() {
   const securityRef =
@@ -1619,25 +1045,15 @@ export default function SecuritySection() {
           className="security-camera"
           aria-hidden="true"
         >
-          <div className="security-camera__ambient" />
-
-          <div className="security-camera__mount" />
-          <div className="security-camera__arm" />
-          <div className="security-camera__joint" />
-
-          <div className="security-camera__body">
-            <div className="security-camera__hood" />
-
-            <div className="security-camera__face">
-              <div className="security-camera__lens" />
-            </div>
-          </div>
-
-          <div className="security-camera__beam" />
-
-          <div className="security-camera__caption">
-            SECURITY / ACTIVE
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="security-camera__image"
+            src={securityCameraUrl}
+            alt=""
+            width="800"
+            height="533"
+            decoding="async"
+          />
         </div>
 
         <div className="security-section__inner">
