@@ -10,6 +10,9 @@ const EMAIL_URL =
 const GOOGLE_MAPS_URL =
   'https://www.google.com/maps/place//data=!4m2!3m1!1s0x47886d20eae2a6d9:0xef1441f915874180?sa=X&ved=1t:8290&ictx=111';
 
+const BRAND_LOGO_URL =
+  'https://pub-fd03e0c0deb14bfda1dea88f5eb37f8b.r2.dev/brand/autorimessa-da-taibi-logo.webp';
+
 const contactStyles = `
   .contact-section {
     --transition-progress: 0;
@@ -433,20 +436,15 @@ const contactStyles = `
   }
 
   .contact-section__brand {
+    display: block;
+
     justify-self: center;
 
-    font-family:
-      'Archivo Black',
-      sans-serif;
+    width:
+      clamp(140px, 12vw, 188px);
+    height: auto;
 
-    font-size:
-      clamp(18px, 2vw, 28px);
-
-    font-weight: 400;
-
-    line-height: 1;
-
-    letter-spacing: -0.05em;
+    filter: invert(1);
   }
 
   .contact-section__back-top {
@@ -640,10 +638,28 @@ const contactStyles = `
     .contact-section__footer {
       grid-template-columns:
         1fr auto;
+
+      gap:
+        12px 20px;
     }
 
     .contact-section__brand {
-      display: none;
+      grid-column: 1 / -1;
+      grid-row: 1;
+
+      justify-self: start;
+
+      width: 126px;
+    }
+
+    .contact-section__legal {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .contact-section__back-top {
+      grid-column: 2;
+      grid-row: 2;
     }
   }
 
@@ -873,9 +889,16 @@ export default function ContactSection() {
               </span>
             </div>
 
-            <strong className="contact-section__brand">
-              DA TAIBI
-            </strong>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="contact-section__brand"
+              src={BRAND_LOGO_URL}
+              alt="Autorimessa Da Taibi"
+              width="720"
+              height="208"
+              loading="lazy"
+              decoding="async"
+            />
 
             <a
               href="#top"

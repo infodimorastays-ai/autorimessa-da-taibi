@@ -11,6 +11,9 @@ const CLOSE_MS = 720;
 const CLOSED_HOLD_MS = 180;
 const OPEN_MS = 1500;
 
+const BRAND_LOGO_URL =
+  'https://pub-fd03e0c0deb14bfda1dea88f5eb37f8b.r2.dev/brand/autorimessa-da-taibi-logo.webp';
+
 const links = [
   {
     number: '01',
@@ -79,86 +82,25 @@ const navbarStyles = `
   ========================================================= */
 
   .navbar__brand {
-    display: flex;
-    align-items: center;
-
-    gap: 13px;
+    display: block;
 
     flex-shrink: 0;
 
     color: #ffffff;
   }
 
-  .navbar__brand-mark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .navbar__brand-logo {
+    display: block;
 
-    width: 38px;
-    height: 38px;
+    width:
+      clamp(148px, 11.5vw, 176px);
+    height: auto;
 
-    border:
-      1px solid
-      rgba(255, 255, 255, 0.38);
-
-    font-family:
-      'Barlow Condensed',
-      sans-serif;
-
-    font-size: 15px;
-    font-style: italic;
-    font-weight: 800;
-
-    letter-spacing: -0.04em;
-
-    transform: skewX(-8deg);
-
-    background:
-      rgba(0, 0, 0, 0.2);
-
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-
-  .navbar__brand-mark span {
-    transform: skewX(8deg);
-  }
-
-  .navbar__brand-copy {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .navbar__brand-name {
-    font-family:
-      'Barlow Condensed',
-      sans-serif;
-
-    font-size: 20px;
-    font-style: italic;
-    font-weight: 800;
-
-    line-height: 0.9;
-    letter-spacing: -0.025em;
-
-    text-transform: uppercase;
-  }
-
-  .navbar__brand-subtitle {
-    margin-top: 6px;
-
-    font-family:
-      'Barlow Condensed',
-      sans-serif;
-
-    font-size: 8px;
-    font-weight: 600;
-
-    line-height: 1;
-    letter-spacing: 0.28em;
-
-    color:
-      rgba(255, 255, 255, 0.52);
+    filter:
+      drop-shadow(
+        0 8px 18px
+        rgba(0, 0, 0, 0.5)
+      );
   }
 
   /* =========================================================
@@ -1738,21 +1680,8 @@ const navbarStyles = `
         var(--layout-inline);
     }
 
-    .navbar__brand-mark {
-      width: 34px;
-      height: 34px;
-
-      font-size: 13px;
-    }
-
-    .navbar__brand-name {
-      font-size: 18px;
-    }
-
-    .navbar__brand-subtitle {
-      margin-top: 5px;
-
-      font-size: 7px;
+    .navbar__brand-logo {
+      width: 148px;
     }
 
     .garage-transition__lamp {
@@ -1802,21 +1731,8 @@ const navbarStyles = `
         var(--layout-inline);
     }
 
-    .navbar__brand {
-      gap: 10px;
-    }
-
-    .navbar__brand-mark {
-      width: 32px;
-      height: 32px;
-    }
-
-    .navbar__brand-name {
-      font-size: 17px;
-    }
-
-    .navbar__brand-subtitle {
-      letter-spacing: 0.23em;
+    .navbar__brand-logo {
+      width: 132px;
     }
 
     .navbar__toggle {
@@ -2277,19 +2193,15 @@ export default function Navbar() {
           aria-label="Autorimessa Da Taibi - Home"
           onClick={handleBrandClick}
         >
-          <span className="navbar__brand-mark">
-            <span>DT</span>
-          </span>
-
-          <span className="navbar__brand-copy">
-            <span className="navbar__brand-name">
-              DA TAIBI
-            </span>
-
-            <span className="navbar__brand-subtitle">
-              AUTORIMESSA · TORINO
-            </span>
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="navbar__brand-logo"
+            src={BRAND_LOGO_URL}
+            alt=""
+            width="720"
+            height="208"
+            decoding="async"
+          />
         </a>
 
         <nav

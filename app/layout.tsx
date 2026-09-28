@@ -28,6 +28,33 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
 
+  manifest: '/manifest.webmanifest',
+
+  icons: {
+    icon: [
+      {
+        url: '/favicon.ico',
+      },
+      {
+        url: '/icon-192.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+      {
+        url: '/icon-512.png',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+    ],
+    apple: [
+      {
+        url: '/apple-touch-icon.png',
+        sizes: '180x180',
+        type: 'image/png',
+      },
+    ],
+  },
+
   openGraph: {
     type: 'website',
     locale: 'it_IT',
@@ -113,6 +140,30 @@ export default function RootLayout({
         clashDisplay.variable
       }
     >
+      <head>
+        <link
+          rel="icon"
+          href="/favicon.ico"
+          sizes="any"
+        />
+        <link
+          rel="icon"
+          href="/icon-192.png"
+          type="image/png"
+          sizes="192x192"
+        />
+        <link
+          rel="icon"
+          href="/icon-512.png"
+          type="image/png"
+          sizes="512x512"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/apple-touch-icon.png"
+          sizes="180x180"
+        />
+      </head>
       <body>
         {children}
 
