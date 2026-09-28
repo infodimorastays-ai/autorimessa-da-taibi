@@ -258,44 +258,92 @@ const heroStyles = `
   }
 
   .hero__whatsapp {
+    position: relative;
+
     display: inline-flex;
     align-items: center;
     gap: 12px;
+
+    overflow: hidden;
+    isolation: isolate;
+
     padding: 13px 16px;
-    background:
-      linear-gradient(
-        135deg,
-        #dce9e1 0%,
-        #a9c9b8 100%
-      );
-    color: #0b2118;
+
+    background: #f7f6f1;
+    color: #07985f;
+
     border:
       1px solid
-      rgba(235, 255, 245, 0.42);
+      rgba(255, 255, 255, 0.72);
+
     box-shadow:
-      0 9px 28px
-      rgba(63, 151, 108, 0.16);
+      0 9px 26px
+      rgba(0, 0, 0, 0.24),
+      0 0 22px
+      rgba(38, 190, 119, 0.08);
+
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.08em;
+
+    text-shadow:
+      0 1px 10px
+      rgba(7, 152, 95, 0.2);
+
     transition:
-      background 200ms ease,
-      box-shadow 200ms ease,
-      transform 200ms ease;
+      color 220ms ease,
+      box-shadow 260ms ease,
+      transform 220ms ease;
+  }
+
+  .hero__whatsapp::before {
+    content: '';
+
+    position: absolute;
+    z-index: -1;
+    inset: -2px;
+
+    background:
+      linear-gradient(
+        112deg,
+        transparent 26%,
+        rgba(81, 224, 156, 0.08) 38%,
+        rgba(81, 224, 156, 0.42) 50%,
+        rgba(255, 255, 255, 0.72) 58%,
+        transparent 72%
+      );
+
+    transform:
+      translateX(-125%);
+
+    transition:
+      transform 620ms
+      cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .hero__whatsapp span {
+    position: relative;
+    z-index: 1;
   }
 
   .hero__whatsapp:hover,
   .hero__whatsapp:focus-visible {
-    background:
-      linear-gradient(
-        135deg,
-        #e8f2ec 0%,
-        #b8d8c7 100%
-      );
+    color: #00ad69;
+
     box-shadow:
-      0 12px 34px
-      rgba(63, 151, 108, 0.24);
-    transform: translateY(-1px);
+      0 13px 34px
+      rgba(0, 0, 0, 0.28),
+      0 0 30px
+      rgba(38, 203, 127, 0.18);
+
+    transform:
+      translateY(-2px);
+  }
+
+  .hero__whatsapp:hover::before,
+  .hero__whatsapp:focus-visible::before {
+    transform:
+      translateX(125%);
   }
 
   .hero__cta:hover,
@@ -529,6 +577,10 @@ const heroStyles = `
 
     .hero__whatsapp {
       transition: none;
+    }
+
+    .hero__whatsapp::before {
+      display: none;
     }
   }
 `;
