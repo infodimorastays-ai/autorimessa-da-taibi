@@ -262,17 +262,40 @@ const heroStyles = `
     align-items: center;
     gap: 12px;
     padding: 13px 16px;
-    background: #f5f3ed;
-    color: #080808;
+    background:
+      linear-gradient(
+        135deg,
+        #dce9e1 0%,
+        #a9c9b8 100%
+      );
+    color: #0b2118;
+    border:
+      1px solid
+      rgba(235, 255, 245, 0.42);
+    box-shadow:
+      0 9px 28px
+      rgba(63, 151, 108, 0.16);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.08em;
-    transition: background 200ms ease;
+    transition:
+      background 200ms ease,
+      box-shadow 200ms ease,
+      transform 200ms ease;
   }
 
   .hero__whatsapp:hover,
   .hero__whatsapp:focus-visible {
-    background: #ffffff;
+    background:
+      linear-gradient(
+        135deg,
+        #e8f2ec 0%,
+        #b8d8c7 100%
+      );
+    box-shadow:
+      0 12px 34px
+      rgba(63, 151, 108, 0.24);
+    transform: translateY(-1px);
   }
 
   .hero__cta:hover,
