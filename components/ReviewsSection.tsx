@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { subscribeScrollFrame } from '../lib/scrollFrame';
 
 const GOOGLE_MAPS_URL =
   'https://www.google.com/maps/place//data=!4m2!3m1!1s0x47886d20eae2a6d9:0xef1441f915874180?sa=X&ved=1t:8290&ictx=111';
@@ -33,7 +34,7 @@ const reviewsStyles = `
     z-index: 35;
 
     width: 100%;
-    height: 100svh;
+    height: var(--viewport-height, 100svh);
     min-height: 620px;
 
     overflow: hidden;
@@ -773,8 +774,6 @@ export default function ReviewsSection() {
 
     if (!reviewsSection || !contact) return;
 
-    let frame = 0;
-
     const clamp = (
       value: number,
       min = 0,
@@ -797,15 +796,25 @@ export default function ReviewsSection() {
       return top;
     };
 
-    const updateAnimation = () => {
-      const viewportHeight =
-        window.innerHeight;
+    let contactDocumentTop =
+      getDocumentTop(contact);
 
-      const contactDocumentTop =
-        getDocumentTop(contact);
+    const updateAnimation = ({
+      scrollY,
+      viewportHeight,
+      layoutChanged,
+    }: {
+      scrollY: number;
+      viewportHeight: number;
+      layoutChanged: boolean;
+    }) => {
+      if (layoutChanged) {
+        contactDocumentTop =
+          getDocumentTop(contact);
+      }
 
       const distanceIntoTransition =
-        window.scrollY -
+        scrollY -
         (
           contactDocumentTop -
           viewportHeight
@@ -827,40 +836,13 @@ export default function ReviewsSection() {
       );
     };
 
-    const requestUpdate = () => {
-      cancelAnimationFrame(frame);
-
-      frame =
-        requestAnimationFrame(
-          updateAnimation
-        );
-    };
-
-    updateAnimation();
-
-    window.addEventListener(
-      'scroll',
-      requestUpdate,
-      { passive: true }
-    );
-
-    window.addEventListener(
-      'resize',
-      requestUpdate
-    );
+    const unsubscribe =
+      subscribeScrollFrame(
+        updateAnimation
+      );
 
     return () => {
-      cancelAnimationFrame(frame);
-
-      window.removeEventListener(
-        'scroll',
-        requestUpdate
-      );
-
-      window.removeEventListener(
-        'resize',
-        requestUpdate
-      );
+      unsubscribe();
     };
   }, []);
 

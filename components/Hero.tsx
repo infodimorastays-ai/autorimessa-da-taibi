@@ -1,6 +1,10 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import {
+  requestScrollFrame,
+  subscribeScrollFrame,
+} from '../lib/scrollFrame';
 
 const HERO_VIDEO_URL =
   'https://pub-fd03e0c0deb14bfda1dea88f5eb37f8b.r2.dev/hero_video_nu1atx.mp4';
@@ -20,7 +24,7 @@ const heroStyles = `
     z-index: 1;
 
     width: 100%;
-    height: 100svh;
+    height: var(--viewport-height, 100svh);
     min-height: 620px;
 
     overflow: hidden;
@@ -607,8 +611,6 @@ export default function Hero() {
       '(prefers-reduced-motion: reduce)'
     );
 
-    let animationFrame = 0;
-
     const clamp = (
       value: number,
       min = 0,
@@ -635,15 +637,25 @@ export default function Hero() {
       return top;
     };
 
-    const updateAnimation = () => {
-      const viewportHeight =
-        window.innerHeight;
+    let introDocumentTop =
+      getDocumentTop(intro);
 
-      const introDocumentTop =
-        getDocumentTop(intro);
+    const updateAnimation = ({
+      scrollY,
+      viewportHeight,
+      layoutChanged,
+    }: {
+      scrollY: number;
+      viewportHeight: number;
+      layoutChanged: boolean;
+    }) => {
+      if (layoutChanged) {
+        introDocumentTop =
+          getDocumentTop(intro);
+      }
 
       const distanceIntoTransition =
-        window.scrollY -
+        scrollY -
         (
           introDocumentTop -
           viewportHeight
@@ -686,31 +698,14 @@ export default function Hero() {
       }
     };
 
-    const requestUpdate = () => {
-      cancelAnimationFrame(
-        animationFrame
+    const unsubscribe =
+      subscribeScrollFrame(
+        updateAnimation
       );
 
-      animationFrame =
-        requestAnimationFrame(
-          updateAnimation
-        );
+    const requestUpdate = () => {
+      requestScrollFrame();
     };
-
-    updateAnimation();
-
-    window.addEventListener(
-      'scroll',
-      requestUpdate,
-      {
-        passive: true,
-      }
-    );
-
-    window.addEventListener(
-      'resize',
-      requestUpdate
-    );
 
     motionPreference.addEventListener(
       'change',
@@ -723,19 +718,7 @@ export default function Hero() {
     );
 
     return () => {
-      cancelAnimationFrame(
-        animationFrame
-      );
-
-      window.removeEventListener(
-        'scroll',
-        requestUpdate
-      );
-
-      window.removeEventListener(
-        'resize',
-        requestUpdate
-      );
+      unsubscribe();
 
       motionPreference.removeEventListener(
         'change',

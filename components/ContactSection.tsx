@@ -21,7 +21,7 @@ const contactStyles = `
     z-index: 40;
 
     width: 100%;
-    min-height: 100svh;
+    min-height: var(--viewport-height, 100svh);
 
     overflow: hidden;
 
@@ -108,7 +108,7 @@ const contactStyles = `
     flex-direction: column;
 
     width: 100%;
-    min-height: 100svh;
+    min-height: var(--viewport-height, 100svh);
 
     padding:
       clamp(46px, 5vw, 72px)

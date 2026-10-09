@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { subscribeScrollFrame } from '../lib/scrollFrame';
 
 const carWashStyles = `
   .carwash-section {
@@ -12,7 +13,7 @@ const carWashStyles = `
     z-index: 25;
 
     width: 100%;
-    height: 100svh;
+    height: var(--viewport-height, 100svh);
     min-height: 620px;
 
     overflow: hidden;
@@ -684,8 +685,6 @@ export default function CarWashSection() {
 
     if (!carWash || !location) return;
 
-    let frame = 0;
-
     const clamp = (
       value: number,
       min = 0,
@@ -708,15 +707,25 @@ export default function CarWashSection() {
       return top;
     };
 
-    const updateAnimation = () => {
-      const viewportHeight =
-        window.innerHeight;
+    let locationDocumentTop =
+      getDocumentTop(location);
 
-      const locationDocumentTop =
-        getDocumentTop(location);
+    const updateAnimation = ({
+      scrollY,
+      viewportHeight,
+      layoutChanged,
+    }: {
+      scrollY: number;
+      viewportHeight: number;
+      layoutChanged: boolean;
+    }) => {
+      if (layoutChanged) {
+        locationDocumentTop =
+          getDocumentTop(location);
+      }
 
       const distanceIntoTransition =
-        window.scrollY -
+        scrollY -
         (
           locationDocumentTop -
           viewportHeight
@@ -738,40 +747,13 @@ export default function CarWashSection() {
       );
     };
 
-    const requestUpdate = () => {
-      cancelAnimationFrame(frame);
-
-      frame =
-        requestAnimationFrame(
-          updateAnimation
-        );
-    };
-
-    updateAnimation();
-
-    window.addEventListener(
-      'scroll',
-      requestUpdate,
-      { passive: true }
-    );
-
-    window.addEventListener(
-      'resize',
-      requestUpdate
-    );
+    const unsubscribe =
+      subscribeScrollFrame(
+        updateAnimation
+      );
 
     return () => {
-      cancelAnimationFrame(frame);
-
-      window.removeEventListener(
-        'scroll',
-        requestUpdate
-      );
-
-      window.removeEventListener(
-        'resize',
-        requestUpdate
-      );
+      unsubscribe();
     };
   }, []);
 

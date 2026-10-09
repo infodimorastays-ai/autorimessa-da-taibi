@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { subscribeScrollFrame } from '../lib/scrollFrame';
 
 const servicesStyles = `
   .services-section {
@@ -12,7 +13,7 @@ const servicesStyles = `
     z-index: 10;
 
     width: 100%;
-    height: 100svh;
+    height: var(--viewport-height, 100svh);
     min-height: 620px;
 
     background: #e5e2da;
@@ -628,8 +629,6 @@ export default function ServicesSection() {
 
     if (!services || !security) return;
 
-    let frame = 0;
-
     const clamp = (
       value: number,
       min = 0,
@@ -656,15 +655,25 @@ export default function ServicesSection() {
       return top;
     };
 
-    const updateAnimation = () => {
-      const viewportHeight =
-        window.innerHeight;
+    let securityDocumentTop =
+      getDocumentTop(security);
 
-      const securityDocumentTop =
-        getDocumentTop(security);
+    const updateAnimation = ({
+      scrollY,
+      viewportHeight,
+      layoutChanged,
+    }: {
+      scrollY: number;
+      viewportHeight: number;
+      layoutChanged: boolean;
+    }) => {
+      if (layoutChanged) {
+        securityDocumentTop =
+          getDocumentTop(security);
+      }
 
       const distanceIntoTransition =
-        window.scrollY -
+        scrollY -
         (
           securityDocumentTop -
           viewportHeight
@@ -686,40 +695,13 @@ export default function ServicesSection() {
       );
     };
 
-    const requestUpdate = () => {
-      cancelAnimationFrame(frame);
-
-      frame =
-        requestAnimationFrame(
-          updateAnimation
-        );
-    };
-
-    updateAnimation();
-
-    window.addEventListener(
-      'scroll',
-      requestUpdate,
-      { passive: true }
-    );
-
-    window.addEventListener(
-      'resize',
-      requestUpdate
-    );
+    const unsubscribe =
+      subscribeScrollFrame(
+        updateAnimation
+      );
 
     return () => {
-      cancelAnimationFrame(frame);
-
-      window.removeEventListener(
-        'scroll',
-        requestUpdate
-      );
-
-      window.removeEventListener(
-        'resize',
-        requestUpdate
-      );
+      unsubscribe();
     };
   }, []);
 

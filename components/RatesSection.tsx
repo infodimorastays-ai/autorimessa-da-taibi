@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { subscribeScrollFrame } from '../lib/scrollFrame';
 
 const ratesStyles = `
   .rates-section {
@@ -12,7 +13,7 @@ const ratesStyles = `
     z-index: 20;
 
     width: 100%;
-    height: 100svh;
+    height: var(--viewport-height, 100svh);
     min-height: 620px;
 
     overflow: hidden;
@@ -776,8 +777,6 @@ export default function RatesSection() {
 
     if (!rates || !carWash) return;
 
-    let frame = 0;
-
     const clamp = (
       value: number,
       min = 0,
@@ -800,15 +799,25 @@ export default function RatesSection() {
       return top;
     };
 
-    const updateAnimation = () => {
-      const viewportHeight =
-        window.innerHeight;
+    let carWashDocumentTop =
+      getDocumentTop(carWash);
 
-      const carWashDocumentTop =
-        getDocumentTop(carWash);
+    const updateAnimation = ({
+      scrollY,
+      viewportHeight,
+      layoutChanged,
+    }: {
+      scrollY: number;
+      viewportHeight: number;
+      layoutChanged: boolean;
+    }) => {
+      if (layoutChanged) {
+        carWashDocumentTop =
+          getDocumentTop(carWash);
+      }
 
       const distanceIntoTransition =
-        window.scrollY -
+        scrollY -
         (
           carWashDocumentTop -
           viewportHeight
@@ -830,40 +839,13 @@ export default function RatesSection() {
       );
     };
 
-    const requestUpdate = () => {
-      cancelAnimationFrame(frame);
-
-      frame =
-        requestAnimationFrame(
-          updateAnimation
-        );
-    };
-
-    updateAnimation();
-
-    window.addEventListener(
-      'scroll',
-      requestUpdate,
-      { passive: true }
-    );
-
-    window.addEventListener(
-      'resize',
-      requestUpdate
-    );
+    const unsubscribe =
+      subscribeScrollFrame(
+        updateAnimation
+      );
 
     return () => {
-      cancelAnimationFrame(frame);
-
-      window.removeEventListener(
-        'scroll',
-        requestUpdate
-      );
-
-      window.removeEventListener(
-        'resize',
-        requestUpdate
-      );
+      unsubscribe();
     };
   }, []);
 

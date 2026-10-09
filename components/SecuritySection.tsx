@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { subscribeScrollFrame } from '../lib/scrollFrame';
 
 const securityStyles = `
   .security-section {
@@ -12,7 +13,7 @@ const securityStyles = `
     z-index: 15;
 
     width: 100%;
-    height: 100svh;
+    height: var(--viewport-height, 100svh);
     min-height: 620px;
 
     overflow: hidden;
@@ -933,8 +934,6 @@ export default function SecuritySection() {
 
     if (!security || !rates) return;
 
-    let frame = 0;
-
     const clamp = (
       value: number,
       min = 0,
@@ -961,15 +960,25 @@ export default function SecuritySection() {
       return top;
     };
 
-    const updateAnimation = () => {
-      const viewportHeight =
-        window.innerHeight;
+    let ratesDocumentTop =
+      getDocumentTop(rates);
 
-      const ratesDocumentTop =
-        getDocumentTop(rates);
+    const updateAnimation = ({
+      scrollY,
+      viewportHeight,
+      layoutChanged,
+    }: {
+      scrollY: number;
+      viewportHeight: number;
+      layoutChanged: boolean;
+    }) => {
+      if (layoutChanged) {
+        ratesDocumentTop =
+          getDocumentTop(rates);
+      }
 
       const distanceIntoTransition =
-        window.scrollY -
+        scrollY -
         (
           ratesDocumentTop -
           viewportHeight
@@ -991,40 +1000,13 @@ export default function SecuritySection() {
       );
     };
 
-    const requestUpdate = () => {
-      cancelAnimationFrame(frame);
-
-      frame =
-        requestAnimationFrame(
-          updateAnimation
-        );
-    };
-
-    updateAnimation();
-
-    window.addEventListener(
-      'scroll',
-      requestUpdate,
-      { passive: true }
-    );
-
-    window.addEventListener(
-      'resize',
-      requestUpdate
-    );
+    const unsubscribe =
+      subscribeScrollFrame(
+        updateAnimation
+      );
 
     return () => {
-      cancelAnimationFrame(frame);
-
-      window.removeEventListener(
-        'scroll',
-        requestUpdate
-      );
-
-      window.removeEventListener(
-        'resize',
-        requestUpdate
-      );
+      unsubscribe();
     };
   }, []);
 
