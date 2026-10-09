@@ -6,8 +6,14 @@ import {
   subscribeScrollFrame,
 } from '../lib/scrollFrame';
 
-const HERO_VIDEO_URL =
-  'https://pub-fd03e0c0deb14bfda1dea88f5eb37f8b.r2.dev/hero_video_nu1atx.mp4';
+const HERO_DESKTOP_VIDEO_URL =
+  'https://pub-fd03e0c0deb14bfda1dea88f5eb37f8b.r2.dev/media/hero/hero-desktop.mp4';
+
+const HERO_MOBILE_VIDEO_URL =
+  'https://pub-fd03e0c0deb14bfda1dea88f5eb37f8b.r2.dev/media/hero/hero-mobile.mp4';
+
+const HERO_POSTER_URL =
+  'https://pub-fd03e0c0deb14bfda1dea88f5eb37f8b.r2.dev/media/hero/hero-poster.webp';
 
 const WHATSAPP_URL =
   'https://wa.me/393281693326';
@@ -747,10 +753,16 @@ export default function Hero() {
           loop
           playsInline
           preload="metadata"
+          poster={HERO_POSTER_URL}
           aria-hidden="true"
         >
           <source
-            src={HERO_VIDEO_URL}
+            src={HERO_MOBILE_VIDEO_URL}
+            type="video/mp4"
+            media="(max-width: 768px)"
+          />
+          <source
+            src={HERO_DESKTOP_VIDEO_URL}
             type="video/mp4"
           />
         </video>
