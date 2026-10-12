@@ -14,10 +14,17 @@ const subscribers =
 let frame = 0;
 let layoutChanged = true;
 
+const getViewportHeight = () =>
+  Math.max(
+    1,
+    window.visualViewport?.height ??
+      window.innerHeight
+  );
+
 const syncViewportHeight = () => {
   document.documentElement.style.setProperty(
     '--viewport-height',
-    `${window.innerHeight}px`
+    `${getViewportHeight()}px`
   );
 };
 
@@ -30,7 +37,7 @@ const flush = () => {
 
   const state: ScrollFrameState = {
     scrollY: window.scrollY,
-    viewportHeight: window.innerHeight,
+    viewportHeight: getViewportHeight(),
     layoutChanged,
   };
 
@@ -59,6 +66,10 @@ const handleResize = () => {
   requestScrollFrame(true);
 };
 
+const handleVisualViewportResize = () => {
+  requestScrollFrame(true);
+};
+
 export const subscribeScrollFrame = (
   subscriber: ScrollFrameSubscriber
 ) => {
@@ -74,6 +85,11 @@ export const subscribeScrollFrame = (
     window.addEventListener(
       'resize',
       handleResize
+    );
+
+    window.visualViewport?.addEventListener(
+      'resize',
+      handleVisualViewportResize
     );
   }
 
@@ -93,6 +109,11 @@ export const subscribeScrollFrame = (
     window.removeEventListener(
       'resize',
       handleResize
+    );
+
+    window.visualViewport?.removeEventListener(
+      'resize',
+      handleVisualViewportResize
     );
 
     if (frame) {
