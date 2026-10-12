@@ -72,6 +72,14 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  font-synthesis: none;
+}
+
 img,
 video {
   display: block;
