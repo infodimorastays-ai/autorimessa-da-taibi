@@ -1575,7 +1575,7 @@ const navbarStyles = `
     }
 
     75% {
-      opacity: 0.84;
+      opacity: 0.58;
     }
 
     92% {
@@ -1598,7 +1598,7 @@ const navbarStyles = `
     }
 
     88% {
-      opacity: 0.56;
+      opacity: 0.3;
     }
 
     100% {
