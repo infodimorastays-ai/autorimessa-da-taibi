@@ -182,7 +182,7 @@ body .contact-section__inner {
   }
 }
 
-@media (max-width: 768px) and (max-height: 600px) {
+@media (max-width: 768px) and (max-height: 700px) {
   body .hero,
   body .intro-section,
   body .services-section,
