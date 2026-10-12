@@ -83,7 +83,7 @@ const heroStyles = `
         28px
       );
 
-    will-change: transform;
+    will-change: auto;
 
     backface-visibility: hidden;
   }

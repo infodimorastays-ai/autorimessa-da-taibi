@@ -72,7 +72,7 @@ const carWashStyles = `
         )
       );
 
-    will-change: transform;
+    will-change: auto;
 
     backface-visibility: hidden;
   }

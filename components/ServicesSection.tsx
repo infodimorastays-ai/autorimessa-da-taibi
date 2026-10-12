@@ -63,7 +63,7 @@ const servicesStyles = `
         )
       );
 
-    will-change: transform;
+    will-change: auto;
 
     backface-visibility: hidden;
   }
