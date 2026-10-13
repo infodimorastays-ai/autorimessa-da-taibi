@@ -62,6 +62,10 @@ const handleScroll = () => {
   requestScrollFrame();
 };
 
+const handleScrollEnd = () => {
+  requestScrollFrame();
+};
+
 const handleResize = () => {
   requestScrollFrame(true);
 };
@@ -79,6 +83,12 @@ export const subscribeScrollFrame = (
     window.addEventListener(
       'scroll',
       handleScroll,
+      { passive: true }
+    );
+
+    window.addEventListener(
+      'scrollend',
+      handleScrollEnd,
       { passive: true }
     );
 
@@ -104,6 +114,11 @@ export const subscribeScrollFrame = (
     window.removeEventListener(
       'scroll',
       handleScroll
+    );
+
+    window.removeEventListener(
+      'scrollend',
+      handleScrollEnd
     );
 
     window.removeEventListener(
