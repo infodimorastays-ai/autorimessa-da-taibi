@@ -887,7 +887,8 @@ export default function RatesSection() {
             <p className="rates-section__intro">
               Parcheggio custodito per auto,
               moto, SUV, furgoni e camper.
-              Formule{' '}
+              <br />
+              Formule
               <strong>
                 giornaliere, settimanali e mensili
               </strong>
@@ -1002,9 +1003,7 @@ export default function RatesSection() {
               </div>
 
               <h3 className="rate-card__title">
-                SUV / FURGONI
-                <br />
-                / CAMPER
+                SUV / FURGONI E CAMPER
               </h3>
 
               <p className="rate-card__description">

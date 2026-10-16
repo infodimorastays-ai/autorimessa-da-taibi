@@ -875,7 +875,7 @@ export default function LocationSection() {
               </span>
 
               <span className="location-detail__value">
-                08 — 18
+                8:00 - 18:00
               </span>
 
               <span className="location-detail__sub">

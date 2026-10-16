@@ -826,9 +826,7 @@ export default function ContactSection() {
 
               <span className="contact-card__content">
                 <strong className="contact-card__value">
-                  Autorimessadataibi
-                  <br />
-                  @gmail.com
+                  Autorimessadataibi@gmail.com
                 </strong>
 
                 <span className="contact-card__sub">
