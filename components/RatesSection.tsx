@@ -888,7 +888,7 @@ export default function RatesSection() {
               Parcheggio custodito per auto,
               moto, SUV, furgoni e camper.
               <br />
-              Formule
+              Formule{' '}
               <strong>
                 giornaliere, settimanali e mensili
               </strong>

@@ -382,6 +382,12 @@ const contactStyles = `
     overflow-wrap: anywhere;
   }
 
+  .contact-card__value--email {
+    font-size: clamp(13px, 1.1vw, 18px);
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+  }
+
   .contact-card__sub {
     font-size: 11px;
     line-height: 1.45;
@@ -825,7 +831,7 @@ export default function ContactSection() {
               </span>
 
               <span className="contact-card__content">
-                <strong className="contact-card__value">
+                <strong className="contact-card__value contact-card__value--email">
                   Autorimessadataibi@gmail.com
                 </strong>
 
@@ -866,11 +872,11 @@ export default function ContactSection() {
                 <strong className="contact-card__value">
                   LUN — SAB
                   <br />
-                  08 — 18
+                  8:00 - 18:00
                 </strong>
 
                 <span className="contact-card__sub">
-                  Domenica 08 — 01
+                  Domenica 8:00 - 1:00
                 </span>
               </span>
             </div>
