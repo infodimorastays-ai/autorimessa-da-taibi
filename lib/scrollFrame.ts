@@ -63,7 +63,7 @@ const handleScroll = () => {
 };
 
 const handleScrollEnd = () => {
-  requestScrollFrame();
+  requestScrollFrame(true);
 };
 
 const handleResize = () => {
