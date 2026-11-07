@@ -891,6 +891,10 @@ export default function ContactSection() {
               <span>
                 REA TO-1338704
               </span>
+
+              <a href="/privacy">
+                PRIVACY E COOKIE
+              </a>
             </div>
 
             {/* eslint-disable-next-line @next/next/no-img-element */}
