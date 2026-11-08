@@ -821,7 +821,7 @@ export default function LocationSection() {
                 aria-label="Apri Autorimessa Da Taibi su Google Maps"
               >
                 <span>APRI SU GOOGLE MAPS</span>
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true">↗︎</span>
               </a>
             </div>
           </div>
@@ -893,7 +893,7 @@ export default function LocationSection() {
 
             <a href="#recensioni">
               <span>RECENSIONI</span>
-              <span aria-hidden="true">↘</span>
+              <span aria-hidden="true">↘︎</span>
             </a>
           </div>
         </div>

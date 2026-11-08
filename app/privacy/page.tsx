@@ -9,7 +9,7 @@ export default function PrivacyPage() {
   return (
     <main className="privacy-page">
       <article>
-        <Link href="/">← Torna al sito</Link>
+        <Link href="/">←︎ Torna al sito</Link>
         <p className="eyebrow">AUTORIMESSA DA TAIBI</p>
         <h1>Privacy e cookie</h1>
         <p className="updated">Ultimo aggiornamento: 7 novembre 2026</p>

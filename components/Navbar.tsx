@@ -2305,7 +2305,7 @@ export default function Navbar() {
                 className="navbar__mobile-arrow"
                 aria-hidden="true"
               >
-                ↘
+                ↘︎
               </span>
             </a>
           ))}

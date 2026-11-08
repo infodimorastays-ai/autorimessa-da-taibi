@@ -794,7 +794,7 @@ export default function ContactSection() {
                   className="contact-section__whatsapp-arrow"
                   aria-hidden="true"
                 >
-                  ↗
+                  ↗︎
                 </span>
               </a>
             </div>
@@ -913,7 +913,7 @@ export default function ContactSection() {
               className="contact-section__back-top"
             >
               <span>TORNA SU</span>
-              <span aria-hidden="true">↑</span>
+              <span aria-hidden="true">↑︎</span>
             </a>
           </footer>
         </div>

@@ -807,7 +807,7 @@ export default function Hero() {
                 aria-label="Contatta Autorimessa Da Taibi su WhatsApp"
               >
                 <span>SCRIVICI SU WHATSAPP</span>
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true">↗︎</span>
               </a>
 
               <a
@@ -819,7 +819,7 @@ export default function Hero() {
                 </span>
 
                 <span aria-hidden="true">
-                  ↘
+                  ↘︎
                 </span>
               </a>
             </div>
@@ -846,7 +846,7 @@ export default function Hero() {
               className="hero__address-arrow"
               aria-hidden="true"
             >
-              ↗
+              ↗︎
             </span>
           </a>
 

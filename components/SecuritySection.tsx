@@ -1142,7 +1142,7 @@ export default function SecuritySection() {
               <span>TARIFFE</span>
 
               <span aria-hidden="true">
-                ↘
+                ↘︎
               </span>
             </a>
           </div>

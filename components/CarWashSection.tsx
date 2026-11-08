@@ -897,7 +897,7 @@ export default function CarWashSection() {
               href="#dove-siamo"
             >
               <span>DOVE SIAMO</span>
-              <span aria-hidden="true">↘</span>
+              <span aria-hidden="true">↘︎</span>
             </a>
           </div>
         </div>

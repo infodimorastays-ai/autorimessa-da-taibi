@@ -763,7 +763,7 @@ export default function ServicesSection() {
                 className="service-row__arrow"
                 aria-hidden="true"
               >
-                ↘
+                ↘︎
               </span>
             </article>
 
@@ -784,7 +784,7 @@ export default function ServicesSection() {
                 className="service-row__arrow"
                 aria-hidden="true"
               >
-                ↘
+                ↘︎
               </span>
             </article>
 
@@ -805,7 +805,7 @@ export default function ServicesSection() {
                 className="service-row__arrow"
                 aria-hidden="true"
               >
-                ↘
+                ↘︎
               </span>
             </article>
           </div>
@@ -825,7 +825,7 @@ export default function ServicesSection() {
               </span>
 
               <span aria-hidden="true">
-                ↘
+                ↘︎
               </span>
             </a>
           </div>

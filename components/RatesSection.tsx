@@ -937,7 +937,7 @@ export default function RatesSection() {
                   className="rate-card__arrow"
                   aria-hidden="true"
                 >
-                  CHIEDI INFO ↘
+                  CHIEDI INFO ↘︎
                 </span>
               </div>
             </a>
@@ -982,7 +982,7 @@ export default function RatesSection() {
                   className="rate-card__arrow"
                   aria-hidden="true"
                 >
-                  CHIEDI INFO ↘
+                  CHIEDI INFO ↘︎
                 </span>
               </div>
             </a>
@@ -1028,7 +1028,7 @@ export default function RatesSection() {
                   className="rate-card__arrow"
                   aria-hidden="true"
                 >
-                  CHIEDI INFO ↘
+                  CHIEDI INFO ↘︎
                 </span>
               </div>
             </a>
@@ -1049,7 +1049,7 @@ export default function RatesSection() {
               </span>
 
               <span aria-hidden="true">
-                ↘
+                ↘︎
               </span>
             </a>
           </div>

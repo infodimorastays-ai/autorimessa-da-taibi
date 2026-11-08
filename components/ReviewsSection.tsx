@@ -898,7 +898,7 @@ export default function ReviewsSection() {
                 aria-label="Leggi tutte le recensioni di Autorimessa Da Taibi su Google"
               >
                 <span>VEDI TUTTE SU GOOGLE</span>
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true">↗︎</span>
               </a>
             </div>
           </div>
@@ -926,7 +926,7 @@ export default function ReviewsSection() {
                     className="review-card__stars"
                     aria-label={`${review.rating} stelle su 5`}
                   >
-                    ★★★★★
+                    ★︎★︎★︎★︎★︎
                   </span>
                 </div>
 
@@ -956,7 +956,7 @@ export default function ReviewsSection() {
 
             <a href="#contatti">
               <span>CONTATTI</span>
-              <span aria-hidden="true">↘</span>
+              <span aria-hidden="true">↘︎</span>
             </a>
           </div>
         </div>
