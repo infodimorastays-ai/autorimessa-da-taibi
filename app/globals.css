@@ -203,8 +203,9 @@ body .contact-section__inner {
     min-height: 0;
 
     overflow-x: hidden;
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
+    /* Keep the document as the only vertical scroll surface on touch devices. */
+    overflow-y: hidden;
+    overscroll-behavior-y: auto;
   }
 }
 
